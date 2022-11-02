@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://lyf.tacl.org/">
-    <img alt="Gatsby" src="/static/lyf-logo-blank.png" width="60" />
+    <img alt="Gatsby" src="https://github.com/TACL-LYF/lyf-website/blob/main/static/lyf-logo-black.png" width="60" />
   </a>
 </p>
 <h1 align="center">
@@ -9,22 +9,12 @@
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
-
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
+1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    gatsby develop
     ```
 
 3.  **Open the code and start customizing!**
