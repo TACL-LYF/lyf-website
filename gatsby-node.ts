@@ -5,15 +5,17 @@
  */
 import path from "path"
 import tsconfig from "./tsconfig.json"
+import type { GatsbyNode } from "gatsby"
 
-const trimString = (str) => str.substring(0, str.length - 2)
+const trimString = (str: string) => str.substring(0, str.length - 2)
 
 // Takes in paths defined in tsconfig.json, strips them of * and then adds them as webpack aliases
-exports.onCreateWebpackConfig = ({ actions }) => {
-  const aliases = tsconfig["compilerOptions"]["paths"]
-  const webpackAliases = {}
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions }) => {
+  let aliases = tsconfig["compilerOptions"]["paths"]
+  const webpackAliases: Record<string, string> = {}
   for (let key in aliases) {
-    const value = trimString(aliases[key][0])
+    // @ts-ignore Treat aliases as an object
+    const value: string = trimString(aliases[key][0])
     webpackAliases[trimString(key)] = path.isAbsolute(value)
       ? value
       : path.resolve(value)

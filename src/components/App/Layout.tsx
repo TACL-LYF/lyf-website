@@ -8,12 +8,15 @@
 import React from "react"
 import { CssBaseline } from "@mui/material"
 
+import Header from "@components/Header"
+
 type Props = React.PropsWithChildren
 
 export default function Layout({ children }: Props) {
   return (
     <>
       <CssBaseline />
+      <Header />
       <main>{children}</main>
     </>
   )
