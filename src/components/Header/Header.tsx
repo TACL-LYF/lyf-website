@@ -10,15 +10,56 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material"
+import Grid from "@mui/material/Unstable_Grid2"
 import { Menu as MenuIcon } from "@mui/icons-material"
 import Logo from "@components/Logo"
 
 import CTABanner from "./CTABanner"
 
-const pages = [
+type Page = {
+  to: string
+  text: string
+  subPages?: Page[]
+}
+
+const PAGES: Page[] = [
   {
     to: "/about-us",
     text: "About Us",
+    subPages: [
+      {
+        to: "/about-us",
+        text: "Mission & Values",
+      },
+      {
+        to: "/about-us",
+        text: "Cultural Stance",
+      },
+      {
+        to: "/about-us",
+        text: "History of LYF",
+      },
+    ],
+  },
+  {
+    to: "/lyf-camp",
+    text: "LYF Camp",
+    subPages: [
+      {
+        to: "/lyf-camp",
+        text: "Placeholder",
+      },
+    ],
+  },
+  {
+    to: "/get-involved",
+    text: "Get Involved",
+    subPages: [
+      {
+        to: "/lyf-camp",
+        text: "Placeholder",
+      },
+    ],
   },
 ]
 
@@ -39,7 +80,7 @@ export default function Header() {
       <AppBar position="static" color="default">
         <Toolbar>
           {/* Menu for smaller screens. Hidden on larger screens */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="Website nav menu"
@@ -56,7 +97,7 @@ export default function Header() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
             >
-              {pages.map((page) => (
+              {PAGES.map((page) => (
                 <MenuItem key={page.text} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.text}</Typography>
                 </MenuItem>
@@ -66,18 +107,48 @@ export default function Header() {
 
           <Logo size={50} />
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.text}
-                onClick={handleCloseNavMenu}
-                sx={{ display: "block" }}
-                color="inherit"
-              >
-                {page.text}
-              </Button>
+          {/* Menu for larger screens. Hidden on smaller screens */}
+          <Grid
+            container
+            justifyContent="flex-end"
+            spacing={1}
+            flexGrow={1}
+            display={{
+              xs: "none",
+              md: "flex",
+            }}
+          >
+            {PAGES.map((page) => (
+              <Grid key={page.text}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ display: "block" }}
+                  color="inherit"
+                >
+                  {page.text}
+                </Button>
+              </Grid>
             ))}
-          </Box>
+            <Grid>
+              <Button
+                sx={{ display: "block" }}
+                color="primary"
+                variant="outlined"
+              >
+                Register For Camp
+              </Button>
+            </Grid>
+
+            <Grid>
+              <Button
+                sx={{ display: "block" }}
+                color="primary"
+                variant="contained"
+              >
+                Donate
+              </Button>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
     </>
