@@ -23,7 +23,7 @@ export default function CTABanner({ text, href }: CTABannerProps) {
         <Container maxWidth="sm">
           <Link href={href} color="inherit" onMouseEnter={trigger}>
             <Grid container justifyContent="center">
-              <Grid>{text} </Grid>
+              <Grid>{text}</Grid>
               <Grid>
                 <AnimatedIcon style={boopStyles} />
               </Grid>
