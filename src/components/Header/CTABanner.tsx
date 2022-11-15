@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 
-import { AppBar, Container, Link, Toolbar, Typography } from "@mui/material"
+import { AppBar, Container, Link, Toolbar } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 import { animated } from "@react-spring/web"
