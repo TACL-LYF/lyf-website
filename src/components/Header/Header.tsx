@@ -36,7 +36,7 @@ export default function Header() {
         text={"Join our LIVE Virtual Info Session"}
         href={"https://www.facebook.com/groups/291534277601982"}
       />
-      <AppBar position="fixed" color="default">
+      <AppBar position="static" color="default">
         <Toolbar>
           {/* Menu for smaller screens. Hidden on larger screens */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
