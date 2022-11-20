@@ -15,48 +15,40 @@ import { Menu as MenuIcon } from "@mui/icons-material"
 import Logo from "@components/Logo"
 
 import CTABanner from "./CTABanner"
-
-type Page = {
-  to: string
-  text: string
-  subPages?: Page[]
-}
+import HeaderPageLink, { Page } from "./HeaderPageLink"
 
 const PAGES: Page[] = [
   {
-    to: "/about-us",
     text: "About Us",
     subPages: [
       {
-        to: "/about-us",
+        // to: "/about-us",
         text: "Mission & Values",
       },
       {
-        to: "/about-us",
+        // to: "/about-us",
         text: "Cultural Stance",
       },
       {
-        to: "/about-us",
+        // to: "/about-us",
         text: "History of LYF",
       },
     ],
   },
   {
-    to: "/lyf-camp",
     text: "LYF Camp",
     subPages: [
       {
-        to: "/lyf-camp",
+        // to: "/lyf-camp",
         text: "Placeholder",
       },
     ],
   },
   {
-    to: "/get-involved",
     text: "Get Involved",
     subPages: [
       {
-        to: "/lyf-camp",
+        // to: "/lyf-camp",
         text: "Placeholder",
       },
     ],
@@ -78,7 +70,7 @@ export default function Header() {
         href={"https://www.facebook.com/groups/291534277601982"}
       />
       <AppBar position="static" color="default">
-        <Toolbar>
+        <Toolbar sx={{ marginLeft: 4, marginRight: 4}}>
           {/* Menu for smaller screens. Hidden on larger screens */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -120,13 +112,7 @@ export default function Header() {
           >
             {PAGES.map((page) => (
               <Grid key={page.text}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ display: "block" }}
-                  color="inherit"
-                >
-                  {page.text}
-                </Button>
+                <HeaderPageLink page={page} />
               </Grid>
             ))}
             <Grid>
