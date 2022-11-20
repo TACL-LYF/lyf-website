@@ -2,7 +2,7 @@ import React from "react"
 
 import { AppBar, Container, Link, Toolbar } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { animated } from "@react-spring/web"
 
 import useBoop from "@hooks/useBoop"
@@ -12,7 +12,7 @@ type CTABannerProps = {
   href: string
 }
 
-const AnimatedIcon = animated(ArrowRightAltIcon)
+const AnimatedIcon = animated(ArrowForwardIcon)
 
 export default function CTABanner({ text, href }: CTABannerProps) {
   const [boopStyles, trigger] = useBoop({ x: 3, scale: 1.1 })
@@ -25,7 +25,7 @@ export default function CTABanner({ text, href }: CTABannerProps) {
             <Grid container justifyContent="center">
               <Grid>{text}</Grid>
               <Grid>
-                <AnimatedIcon style={boopStyles} />
+                <AnimatedIcon style={boopStyles} fontSize="small"/>
               </Grid>
             </Grid>
           </Link>
