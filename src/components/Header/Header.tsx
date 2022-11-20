@@ -10,13 +10,48 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material"
+import Grid from "@mui/material/Unstable_Grid2"
 import { Menu as MenuIcon } from "@mui/icons-material"
 import Logo from "@components/Logo"
 
-const pages = [
+import CTABanner from "./CTABanner"
+import HeaderPageLink, { Page } from "./HeaderPageLink"
+
+const PAGES: Page[] = [
   {
-    to: "/about-us",
     text: "About Us",
+    subPages: [
+      {
+        // to: "/about-us",
+        text: "Mission & Values",
+      },
+      {
+        // to: "/about-us",
+        text: "Cultural Stance",
+      },
+      {
+        // to: "/about-us",
+        text: "History of LYF",
+      },
+    ],
+  },
+  {
+    text: "LYF Camp",
+    subPages: [
+      {
+        // to: "/lyf-camp",
+        text: "Placeholder",
+      },
+    ],
+  },
+  {
+    text: "Get Involved",
+    subPages: [
+      {
+        // to: "/lyf-camp",
+        text: "Placeholder",
+      },
+    ],
   },
 ]
 
@@ -29,44 +64,79 @@ export default function Header() {
     setAnchorElNav(null)
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        {/* Menu for smaller screens. Hidden on larger screens */}
-        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-          <IconButton
-            size="large"
-            aria-label="Website nav menu"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
+    <>
+      <CTABanner
+        text={"Join our LIVE Virtual Info Session"}
+        href={"https://www.facebook.com/groups/291534277601982"}
+      />
+      <AppBar position="static" color="default">
+        <Toolbar sx={{ marginLeft: 4, marginRight: 4}}>
+          {/* Menu for smaller screens. Hidden on larger screens */}
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="Website nav menu"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              keepMounted
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+            >
+              {PAGES.map((page) => (
+                <MenuItem key={page.text} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.text}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+
+          <Logo size={50} />
+
+          {/* Menu for larger screens. Hidden on smaller screens */}
+          <Grid
+            container
+            justifyContent="flex-end"
+            spacing={1}
+            flexGrow={1}
+            display={{
+              xs: "none",
+              md: "flex",
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            keepMounted
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-          >
-            {pages.map((page) => (
-              <MenuItem key={page.text} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page.text}</Typography>
-              </MenuItem>
+            {PAGES.map((page) => (
+              <Grid key={page.text}>
+                <HeaderPageLink page={page} />
+              </Grid>
             ))}
-          </Menu>
-        </Box>
+            <Grid>
+              <Button
+                sx={{ display: "block" }}
+                color="primary"
+                variant="outlined"
+              >
+                Register For Camp
+              </Button>
+            </Grid>
 
-        <Logo size={50} />
-
-        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-          {pages.map((page) => (
-            <Button key={page.text} onClick={handleCloseNavMenu} sx={{display: "block"}} color="inherit">
-              {page.text}
-            </Button>
-          ))}
-        </Box>
-      </Toolbar>
-    </AppBar>
+            <Grid>
+              <Button
+                sx={{ display: "block" }}
+                color="primary"
+                variant="contained"
+              >
+                Donate
+              </Button>
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+    </>
   )
 }
