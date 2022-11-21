@@ -12,8 +12,9 @@ import {
 } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import { Menu as MenuIcon } from "@mui/icons-material"
-import Logo from "@components/Logo"
+import { Link } from "gatsby"
 
+import Logo from "@components/Logo"
 import CTABanner from "./CTABanner"
 import HeaderPageLink, { Page } from "./HeaderPageLink"
 
@@ -70,7 +71,7 @@ export default function Header() {
         href={"https://www.facebook.com/groups/291534277601982"}
       />
       <AppBar position="static" color="default">
-        <Toolbar sx={{ marginLeft: 4, marginRight: 4}}>
+        <Toolbar sx={{ marginLeft: 4, marginRight: 4 }}>
           {/* Menu for smaller screens. Hidden on larger screens */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -97,7 +98,9 @@ export default function Header() {
             </Menu>
           </Box>
 
-          <Logo size={50} />
+          <Link to="/" style={{lineHeight: 0}}>
+            <Logo size={50} />
+          </Link>
 
           {/* Menu for larger screens. Hidden on smaller screens */}
           <Grid
