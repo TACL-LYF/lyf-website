@@ -4,6 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2"
 import { graphql, PageProps } from "gatsby"
 
 import { AnimatedButton } from "@components/Button"
+import SanityImage from "@components/Image/SanityImage"
 
 export const query = graphql`
   query IndexPage {
@@ -11,9 +12,7 @@ export const query = graphql`
       mainHeader
       subHeader
       headerPhotos {
-        asset {
-          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
-        }
+        ...SanityImageAsset
       }
     }
   }
@@ -50,8 +49,8 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
             </Stack>
           </Grid>
           {/* Photos */}
-          <Grid xs={12}>
-
+          <Grid container xs={12}>
+            {sanityHomePage?.headerPhotos?.map((img) => <SanityImage imageAsset={img} />)}
           </Grid>
         </Grid>
       </Container>
