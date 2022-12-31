@@ -5334,7 +5334,7 @@ gatsby-parcel-config@1.3.1:
     "@parcel/transformer-js" "2.8.1"
     "@parcel/transformer-json" "2.8.1"
 
-gatsby-plugin-image@^3.0.0:
+gatsby-plugin-image@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-3.3.2.tgz#7263c10c504eea039315bd271e917a8fa016db9a"
   integrity sha512-8BzRBvCTbAZYSO661d+76tbxXEUgGMnGXGzDYXPfwROn3BdtP953D+w+dGdZi2AtwaSxsoZ33LR1vBdBl9pFjg==
@@ -5455,7 +5455,7 @@ gatsby-source-filesystem@^5.0.0:
     valid-url "^1.0.9"
     xstate "^4.34.0"
 
-gatsby-source-sanity@^7.5.1:
+gatsby-source-sanity@^7.6.1:
   version "7.6.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-sanity/-/gatsby-source-sanity-7.6.1.tgz#2cc91a6d124c407befb28402cf23997972e5398e"
   integrity sha512-tywBr7TKRQE1a6lrA3rFPN59MnQucpswg0F/u9zIa/WorKOFdN1FqEkZkZ/TWx76PT6aihSITpD/BRn0IVCHEg==

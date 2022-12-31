@@ -9,13 +9,14 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: false,
   plugins: [
-    // {
-    //   resolve: "gatsby-source-sanity",
-    //   options: {
-    //     projectId: "68eu2oev",
-    //     dataset: "production"
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "68eu2oev",
+        dataset: "production"
+      },
+    },
+    "gatsby-plugin-image",
   ],
 }
 
