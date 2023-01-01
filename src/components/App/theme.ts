@@ -21,8 +21,9 @@ const PINK: PaletteColorOptions = {
 
 const theme = createTheme({
   palette: {
-    primary: TEAL,
-    secondary: PINK,
+    primary: PINK,
+    secondary: SAFFRON_YELLOW,
+    tertiary: TEAL,
   },
   shape: {
     borderRadius: 4
