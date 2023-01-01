@@ -17,11 +17,11 @@ const StyledGatsbyImage = styled(GatsbyImage)(({theme}) => ({
 }))
 
 type SanityImageProps = Omit<GatsbyImageProps, "image" | "alt"> & {
-  imageAsset: Queries.SanityImageAssetFragment
+  imageAsset: Queries.SanityImageAssetFragment | null
 }
 
 export default function SanityImage({imageAsset, ...rest}: SanityImageProps) {
-  if (!imageAsset.asset?.gatsbyImageData) {
+  if (!imageAsset?.asset?.gatsbyImageData) {
     return <></>
   }
 
