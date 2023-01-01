@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Container, Stack, Typography } from "@mui/material"
+import { Box, Container, Stack, Typography } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import { graphql, PageProps } from "gatsby"
 
@@ -18,11 +18,74 @@ export const query = graphql`
   }
 `
 
+const ColoredBar = ({ color }: { color: string }) => (
+  <Box
+    sx={(theme) => ({
+      backgroundColor: `${color}.main`,
+      borderRadius: 1,
+      width: "100%",
+      height: theme.spacing(1),
+    })}
+  />
+)
+
+export function PhotoGrid({
+  photos,
+}: {
+  photos:
+    | readonly (Queries.SanityImageAssetFragment | null)[]
+    | null
+    | undefined
+}) {
+  if (!photos) {
+    return <></>
+  }
+
+  // Assume we're given 6 photos.
+  return (
+    <Grid
+      container
+      xs={12}
+      alignItems="center"
+      spacing={3}
+      justifyContent="center"
+    >
+      <Grid xs={0} md={3}>
+        <Stack spacing={1}>
+          <SanityImage imageAsset={photos[0]} />
+          <ColoredBar color="primary" />
+        </Stack>
+      </Grid>
+      <Grid xs={5} md={3}>
+        <Stack spacing={1}>
+          <SanityImage imageAsset={photos[1]} />
+          <ColoredBar color="secondary" />
+          <SanityImage imageAsset={photos[2]} />
+        </Stack>
+      </Grid>
+
+      <Grid xs={5} md={3}>
+        <Stack spacing={1}>
+          <SanityImage imageAsset={photos[4]} />
+          <ColoredBar color="tertiary" />
+          <SanityImage imageAsset={photos[3]} />
+        </Stack>
+      </Grid>
+      <Grid xs={0} md={3}>
+        <Stack spacing={1}>
+          <ColoredBar color="primary" />
+          <SanityImage imageAsset={photos[5]} />
+        </Stack>
+      </Grid>
+    </Grid>
+  )
+}
+
 export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
   const { sanityHomePage } = data
 
   return (
-    <>
+    <Stack>
       {/* Hero Section */}
       <Container
         maxWidth="xl"
@@ -30,7 +93,13 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           padding: 4,
         }}
       >
-        <Grid container alignItems="center" justifyContent="space-between" flexWrap="wrap">
+        <Grid
+          container
+          alignItems="center"
+          justifyContent="center"
+          flexWrap="wrap"
+          rowGap={2}
+        >
           {/* Header */}
           <Grid xs={6}>
             <Typography variant="h1">{sanityHomePage?.mainHeader}</Typography>
@@ -48,12 +117,13 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
               </AnimatedButton>
             </Stack>
           </Grid>
-          {/* Photos */}
-          <Grid container xs={12}>
-            {sanityHomePage?.headerPhotos?.map((img) => <SanityImage imageAsset={img} />)}
-          </Grid>
         </Grid>
       </Container>
-    </>
+
+      {/* Hero Images */}
+      <Container maxWidth="xl">
+        <PhotoGrid photos={sanityHomePage?.headerPhotos} />
+      </Container>
+    </Stack>
   )
 }
