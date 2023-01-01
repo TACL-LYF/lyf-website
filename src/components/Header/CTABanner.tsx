@@ -18,7 +18,7 @@ export default function CTABanner({ text, href }: CTABannerProps) {
   const [boopStyles, trigger] = useBoop({ x: 3, scale: 1.1 })
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="secondary">
       <Toolbar variant="dense">
         <Container maxWidth="sm">
           <Link href={href} color="inherit" onMouseEnter={trigger}>

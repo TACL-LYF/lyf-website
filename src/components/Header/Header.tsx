@@ -122,7 +122,7 @@ export default function Header() {
               <Button
                 sx={{ display: "block" }}
                 color="primary"
-                variant="outlined"
+                variant="contained"
               >
                 Register For Camp
               </Button>
@@ -132,7 +132,7 @@ export default function Header() {
               <Button
                 sx={{ display: "block" }}
                 color="primary"
-                variant="contained"
+                variant="outlined"
               >
                 Donate
               </Button>
