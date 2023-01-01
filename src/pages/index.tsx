@@ -1,10 +1,11 @@
 import * as React from "react"
-import { Box, Container, Stack, Typography } from "@mui/material"
+import { Box, Container, Stack, Paper, Typography } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import { graphql, PageProps } from "gatsby"
 
 import { AnimatedButton } from "@components/Button"
-import SanityImage from "@components/Image/SanityImage"
+
+import { PhotoGrid } from "@components/IndexPage"
 
 export const query = graphql`
   query IndexPage {
@@ -18,74 +19,11 @@ export const query = graphql`
   }
 `
 
-const ColoredBar = ({ color }: { color: string }) => (
-  <Box
-    sx={(theme) => ({
-      backgroundColor: `${color}.main`,
-      borderRadius: 1,
-      width: "100%",
-      height: theme.spacing(1),
-    })}
-  />
-)
-
-export function PhotoGrid({
-  photos,
-}: {
-  photos:
-    | readonly (Queries.SanityImageAssetFragment | null)[]
-    | null
-    | undefined
-}) {
-  if (!photos) {
-    return <></>
-  }
-
-  // Assume we're given 6 photos.
-  return (
-    <Grid
-      container
-      xs={12}
-      alignItems="center"
-      spacing={3}
-      justifyContent="center"
-    >
-      <Grid xs={0} md={3}>
-        <Stack spacing={1}>
-          <SanityImage imageAsset={photos[0]} />
-          <ColoredBar color="primary" />
-        </Stack>
-      </Grid>
-      <Grid xs={5} md={3}>
-        <Stack spacing={1}>
-          <SanityImage imageAsset={photos[1]} />
-          <ColoredBar color="secondary" />
-          <SanityImage imageAsset={photos[2]} />
-        </Stack>
-      </Grid>
-
-      <Grid xs={5} md={3}>
-        <Stack spacing={1}>
-          <SanityImage imageAsset={photos[4]} />
-          <ColoredBar color="tertiary" />
-          <SanityImage imageAsset={photos[3]} />
-        </Stack>
-      </Grid>
-      <Grid xs={0} md={3}>
-        <Stack spacing={1}>
-          <ColoredBar color="primary" />
-          <SanityImage imageAsset={photos[5]} />
-        </Stack>
-      </Grid>
-    </Grid>
-  )
-}
-
 export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
   const { sanityHomePage } = data
 
   return (
-    <Stack>
+    <Stack spacing={2} alignItems="stretch">
       {/* Hero Section */}
       <Container
         maxWidth="xl"
@@ -98,16 +36,32 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           alignItems="center"
           justifyContent="center"
           flexWrap="wrap"
-          rowGap={2}
+          gap={2}
         >
           {/* Header */}
-          <Grid xs={6}>
-            <Typography variant="h1">{sanityHomePage?.mainHeader}</Typography>
+          <Grid xs={12} md={6}>
+            <Typography
+              variant="h1"
+              textAlign={{
+                xs: "center",
+                md: "left",
+              }}
+            >
+              {sanityHomePage?.mainHeader}
+            </Typography>
           </Grid>
           {/* SubHeader */}
-          <Grid xs={4}>
+          <Grid xs={12} md={5}>
             <Stack spacing={2} alignItems={{ xs: "center", md: "self-start" }}>
-              <Typography variant="h4">{sanityHomePage?.subHeader}</Typography>
+              <Typography
+                variant="h4"
+                textAlign={{
+                  xs: "center",
+                  md: "left",
+                }}
+              >
+                {sanityHomePage?.subHeader}
+              </Typography>
               <AnimatedButton
                 boopProps={{ scale: 1.1 }}
                 href="https://www.zeffy.com/en-US/ticketing/74df2944-47d2-4629-a3e3-0d8aa929fac3"
@@ -121,9 +75,37 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       </Container>
 
       {/* Hero Images */}
-      <Container maxWidth="xl">
+      <Container
+        maxWidth={false}
+        sx={{
+          paddingLeft: { xs: 1, md: 10 },
+          paddingRight: { xs: 1, md: 10 },
+        }}
+      >
         <PhotoGrid photos={sanityHomePage?.headerPhotos} />
       </Container>
+
+      {/* Info */}
+      <Paper
+        sx={{
+          backgroundColor: "secondary.light",
+          padding: 10,
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack spacing={2}>
+          <Typography variant="h3" textAlign="center">
+            We are a lifelong Taiwanese American community in the Bay Area -
+            built by the current generation of TAs for the next generation.
+          </Typography>
+          <Typography variant="body1" textAlign="center">
+            Our mission is to develop the Taiwanese American community into
+            whole person leaders through an understanding of heritage, self, and
+            the world.
+          </Typography>
+          </Stack>
+        </Container>
+      </Paper>
     </Stack>
   )
 }
