@@ -7,6 +7,7 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Stack,
   Toolbar,
   Typography,
 } from "@mui/material"
@@ -61,17 +62,13 @@ export default function Header() {
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) =>
     setAnchorElNav(event.currentTarget)
-  const handleCloseNavMenu = (event: React.MouseEvent<HTMLElement>) =>
-    setAnchorElNav(null)
+  const handleCloseNavMenu = () => setAnchorElNav(null)
 
   return (
     <>
-      <CTABanner
-        text={"Join our LIVE Virtual Info Session"}
-        href={"https://www.facebook.com/groups/291534277601982"}
-      />
+      <CTABanner />
       <AppBar position="static" color="default">
-        <Toolbar sx={{ marginLeft: 4, marginRight: 4 }}>
+        <Toolbar sx={{ marginLeft: { xs: 0, md: 4 }, marginRight: 4 }}>
           {/* Menu for smaller screens. Hidden on larger screens */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -98,14 +95,14 @@ export default function Header() {
             </Menu>
           </Box>
 
-          <Link to="/" style={{lineHeight: 0}}>
+          <Link to="/" style={{ lineHeight: 0 }}>
             <Logo size={50} />
           </Link>
 
           {/* Menu for larger screens. Hidden on smaller screens */}
-          <Grid
-            container
+          <Stack
             justifyContent="flex-end"
+            direction="row"
             spacing={1}
             flexGrow={1}
             display={{
@@ -114,30 +111,23 @@ export default function Header() {
             }}
           >
             {PAGES.map((page) => (
-              <Grid key={page.text}>
-                <HeaderPageLink page={page} />
-              </Grid>
+              <HeaderPageLink page={page} />
             ))}
-            <Grid>
-              <Button
-                sx={{ display: "block" }}
-                color="primary"
-                variant="contained"
-              >
-                Register For Camp
-              </Button>
-            </Grid>
-
-            <Grid>
-              <Button
-                sx={{ display: "block" }}
-                color="primary"
-                variant="outlined"
-              >
-                Donate
-              </Button>
-            </Grid>
-          </Grid>
+            <Button
+              sx={{ display: "block" }}
+              color="primary"
+              variant="contained"
+            >
+              Register For Camp
+            </Button>
+            <Button
+              sx={{ display: "block" }}
+              color="primary"
+              variant="outlined"
+            >
+              Donate
+            </Button>
+          </Stack>
         </Toolbar>
       </AppBar>
     </>
