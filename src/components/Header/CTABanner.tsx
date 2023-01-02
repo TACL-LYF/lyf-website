@@ -1,33 +1,51 @@
 import React from "react"
 
-import { AppBar, Container, Link, Toolbar } from "@mui/material"
-import Grid from "@mui/material/Unstable_Grid2"
+import {
+  AppBar,
+  Container,
+  Link,
+  Stack,
+  Toolbar,
+  Typography,
+} from "@mui/material"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { animated } from "@react-spring/web"
+import { graphql, useStaticQuery } from "gatsby"
 
 import useBoop from "@hooks/useBoop"
 
-type CTABannerProps = {
-  text: string
-  href: string
-}
-
 const AnimatedIcon = animated(ArrowForwardIcon)
 
-export default function CTABanner({ text, href }: CTABannerProps) {
+export default function CTABanner() {
   const [boopStyles, trigger] = useBoop({ x: 3, scale: 1.1 })
+  const { sanitySiteSettings } = useStaticQuery<Queries.CTABannerQuery>(graphql`
+    query CTABanner {
+      sanitySiteSettings {
+        ctaText
+        ctaLink
+      }
+    }
+  `)
+
+  if (!sanitySiteSettings?.ctaText) {
+    return <></>
+  }
+
+  const { ctaLink, ctaText } = sanitySiteSettings
 
   return (
     <AppBar position="static" color="secondary">
       <Toolbar variant="dense">
         <Container maxWidth="sm">
-          <Link href={href} color="inherit" onMouseEnter={trigger}>
-            <Grid container justifyContent="center">
-              <Grid>{text}</Grid>
-              <Grid>
-                <AnimatedIcon style={boopStyles} fontSize="small"/>
-              </Grid>
-            </Grid>
+          <Link
+            href={ctaLink ? ctaLink : undefined}
+            color="inherit"
+            onMouseEnter={trigger}
+          >
+            <Stack direction="row" justifyContent="center">
+              <Typography variant="body1">{ctaText}</Typography>
+              <AnimatedIcon style={boopStyles} fontSize="small" />
+            </Stack>
           </Link>
         </Container>
       </Toolbar>
