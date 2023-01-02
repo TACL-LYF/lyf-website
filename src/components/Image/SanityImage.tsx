@@ -13,7 +13,7 @@ export const sanityImageFragment = graphql`
 `
 
 const StyledGatsbyImage = styled(GatsbyImage)(({theme}) => ({
-  borderRadius: theme.shape.borderRadius
+  borderRadius: theme.shape.borderRadius * 4
 }))
 
 type SanityImageProps = Omit<GatsbyImageProps, "image" | "alt"> & {
