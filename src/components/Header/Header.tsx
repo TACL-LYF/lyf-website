@@ -128,7 +128,7 @@ export default function Header() {
             }}
           >
             {PAGES.map((page) => (
-              <HeaderPageLink page={page} />
+              <HeaderPageLink key={page.text} page={page} />
             ))}
             <Button
               sx={{ display: "block" }}
