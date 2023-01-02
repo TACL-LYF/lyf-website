@@ -26,3 +26,23 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ act
     },
   })
 }
+
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({actions, schema}) => {
+  const { createTypes } = actions
+
+  // See the button schema in the CMS repo
+  const typeDefs = `
+    enum ButtonVariant {
+      contained
+      outlined
+      text
+    }
+    type SanityButton implements Node {
+      text: String!
+      variant: ButtonVariant!
+      link: String!
+    }
+  `
+
+  createTypes(typeDefs)
+}

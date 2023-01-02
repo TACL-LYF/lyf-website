@@ -6,12 +6,11 @@ type LinkButtonProps = ButtonProps & {
   to?: string
 }
 
-const LinkButton = React.forwardRef<HTMLElement, LinkButtonProps>(
+const LinkButton = React.forwardRef<HTMLButtonElement, LinkButtonProps>(
   ({ to, ...rest }, ref) => (
     <Button
       component={to ? Link : "button"}
       to={to && to.charAt(0) != "/" ? `/${to}` : to}
-      // @ts-ignore Ref type weirdness
       ref={ref}
       {...rest}
     />
