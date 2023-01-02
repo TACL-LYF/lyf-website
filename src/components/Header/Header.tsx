@@ -7,11 +7,15 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  List,
+  ListItem,
   Stack,
+  SwipeableDrawer,
   Toolbar,
   Typography,
+  ListItemButton,
+  ListItemText,
 } from "@mui/material"
-import Grid from "@mui/material/Unstable_Grid2"
 import { Menu as MenuIcon } from "@mui/icons-material"
 import { Link } from "gatsby"
 
@@ -58,11 +62,21 @@ const PAGES: Page[] = [
 ]
 
 export default function Header() {
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) =>
-    setAnchorElNav(event.currentTarget)
-  const handleCloseNavMenu = () => setAnchorElNav(null)
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event &&
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return
+      }
+
+      setDrawerOpen(open)
+    }
 
   return (
     <>
@@ -74,25 +88,28 @@ export default function Header() {
             <IconButton
               size="large"
               aria-label="Website nav menu"
-              aria-controls="menu-appbar"
+              aria-controls="drawer-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={toggleDrawer(true)}
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              keepMounted
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <SwipeableDrawer
+              id="drawer-appbar"
+              open={drawerOpen}
+              onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
             >
-              {PAGES.map((page) => (
-                <MenuItem key={page.text} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.text}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+              <List>
+                {PAGES.map((page) => (
+                  <ListItem key={page.text} disablePadding>
+                    <ListItemButton onClick={toggleDrawer(false)}>
+                      <ListItemText>{page.text}</ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </SwipeableDrawer>
           </Box>
 
           <Link to="/" style={{ lineHeight: 0 }}>
