@@ -34,13 +34,13 @@ export default function PhotoGrid({ photos }: PhotoGridProps) {
       justifyContent="center"
       spacing={3}
     >
-      <Grid xs={0} md={3}>
+      <Grid xs={0} sm={3} >
         <Stack spacing={1}>
           <SanityImage imageAsset={photos[0]} />
           <ColoredBar color="primary" />
         </Stack>
       </Grid>
-      <Grid xs={5} md={3}>
+      <Grid xs={5} sm={3} >
         <Stack spacing={1}>
           <SanityImage imageAsset={photos[1]} />
           <ColoredBar color="secondary" />
@@ -48,14 +48,14 @@ export default function PhotoGrid({ photos }: PhotoGridProps) {
         </Stack>
       </Grid>
 
-      <Grid xs={5} md={3}>
+      <Grid xs={5} sm={3} >
         <Stack spacing={1}>
           <SanityImage imageAsset={photos[4]} />
           <ColoredBar color="tertiary" />
           <SanityImage imageAsset={photos[3]} />
         </Stack>
       </Grid>
-      <Grid xs={0} md={3}>
+      <Grid xs={0} sm={3}>
         <Stack spacing={1}>
           <ColoredBar color="primary" />
           <SanityImage imageAsset={photos[5]} />
