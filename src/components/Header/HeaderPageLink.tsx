@@ -34,7 +34,6 @@ export default function HeaderPageLink({ page }: HeaderPageLinkProps) {
         id={id}
         aria-controls={open ? `button-menu-to-${to}` : undefined}
         aria-haspopup="true"
-        aria-hasexpanded={open ? "true" : undefined}
         onClick={handleClick}
         to={to}
         href={to && to.startsWith("http") ? to : undefined}
@@ -62,7 +61,7 @@ export default function HeaderPageLink({ page }: HeaderPageLinkProps) {
           }}
         >
           {subPages.map((subPage, index) => (
-            <MenuItem key={`${id}-${index}`} onClick={handleClose}>
+            <MenuItem key={`${text}-${id}-${index}`} onClick={handleClose}>
               {subPage.text}
             </MenuItem>
           ))}
