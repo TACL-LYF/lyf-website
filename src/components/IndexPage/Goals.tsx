@@ -24,7 +24,7 @@ export default function Goals({ goals }: GoalsProps) {
   return (
     <Grid container justifyContent="space-between" alignItems="flex-start">
       {goals.map((goal, index) => (
-        <Grid xs={12} md={2}>
+        <Grid xs={12} md={2} key={goal}>
           <Stack>
             {icons[index % 5]}
             <Typography variant="h6">{goal}</Typography>
