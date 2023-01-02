@@ -1,9 +1,10 @@
 import * as React from "react"
-import { Box, Container, Paper, Link, Stack, Typography } from "@mui/material"
+import { Box, Stack, Typography, styled } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
+import { Favorite, AutoAwesome, RocketLaunch } from "@mui/icons-material"
 import { graphql, PageProps } from "gatsby"
 
-import { SanityButton } from "@components/Button"
+import { AnimatedButton, SanityButton } from "@components/Button"
 
 import { PhotoGrid, Goals, Statistics } from "@components/IndexPage"
 import PortableText from "@components/PortableText"
@@ -38,6 +39,40 @@ export const query = graphql`
     }
   }
 `
+
+const wholePersonLeadership = [
+  {
+    Icon: Favorite,
+    color: "primary",
+    name: "Acceptance & Belonging",
+    description: "A lifelong community of Taiwanese American friends",
+  },
+  {
+    Icon: AutoAwesome,
+    color: "secondary",
+    name: "Identity & Development",
+    description:
+      "A safe space outside of school and family to be themselves and learn who they are",
+  },
+  {
+    Icon: RocketLaunch,
+    color: "tertiary",
+    name: "Leadership",
+    description:
+      "A steady pipeline of leadership development opportunities to meet your kid where they’re at over the years",
+  },
+]
+
+const Placeholder = () => (
+  <Box
+    sx={{
+      width: 1,
+      height: 1,
+      backgroundColor: "primary.main",
+      borderRadius: 5,
+    }}
+  />
+)
 
 export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
   const { sanityHomePage } = data
@@ -138,9 +173,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
             </Stack>
           </Grid>
           <Grid xs={12} md={6}>
-            <Box
-              sx={{ width: 1, height: 1, backgroundColor: "primary.main" }}
-            ></Box>
+            <Placeholder />
           </Grid>
         </Grid>
       </Section>
@@ -159,6 +192,125 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       <Section backgroundColor="tertiary.main">
         <Statistics stats={sanityHomePage?.stats} />
       </Section>
+
+      {/* Whole Person Leadership */}
+      <Section>
+        <Grid
+          container
+          alignItems="stretch"
+          justifyContent="space-between"
+          spacing={4}
+        >
+          <Grid xs={12} md={6}>
+            <Placeholder />
+          </Grid>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{
+              padding: { xs: 0, md: 4 },
+            }}
+          >
+            <Stack spacing={2}>
+              <Typography
+                variant="h3"
+                sx={{
+                  display: { xs: "none", md: "block" },
+                }}
+              >
+                Development through the Whole Person Leadership Model
+              </Typography>
+              <Typography
+                variant="h3"
+                textAlign="center"
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                Built by the current TA generation for the next generation
+              </Typography>
+              <Stack spacing={5}>
+                {wholePersonLeadership.map(
+                  ({ Icon, color, name, description }) => (
+                    <Grid
+                      container
+                      key={name}
+                      columnSpacing={1}
+                      rowSpacing={0}
+                      sx={{
+                        padding: 0,
+                      }}
+                    >
+                      <Grid>
+                        {/* @ts-ignore Tertiary added via module augmentation but doesn't show up here. */}
+                        <Icon color={color} fontSize="large" />
+                      </Grid>
+                      <Grid>
+                        <Typography variant="h4" color={`${color}.main`}>
+                          {name}
+                        </Typography>
+                      </Grid>
+                      <Grid xs={12}>
+                        <Typography variant="body1">{description}</Typography>
+                      </Grid>
+                    </Grid>
+                  )
+                )}
+              </Stack>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Section>
+
+      {/* Quotes TODO */}
+      {/* <Section></Section> */}
+
+      {/* CTAs */}
+      <Grid container alignItems="stretch">
+        <Grid xs={12} md={6}>
+          <Section maxWidth="xs" backgroundColor="secondary.light">
+            <Stack alignItems="center" spacing={2}>
+              <Typography variant="h4" textAlign="center">
+                {sanityHomePage.ctaHeader}
+              </Typography>
+              <PortableText
+                textAlign="center"
+                content={sanityHomePage._rawCtaBody}
+              />
+              <SanityButton
+                isAnimated
+                boopProps={{ scale: 1.1 }}
+                content={sanityHomePage.ctaLink}
+              />
+            </Stack>
+          </Section>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Section
+            maxWidth="xs"
+            backgroundColor="secondary.main"
+            sx={{
+              height: 1,
+            }}
+          >
+            <Stack
+              alignItems="center"
+              spacing={4}
+              justifyContent="center"
+              sx={{
+                height: 1,
+              }}
+            >
+              <Typography variant="h4" textAlign="center">
+                Want to Get Involved?
+              </Typography>
+              <AnimatedButton boopProps={{ scale: 1.1 }} variant="contained">
+                Join Our Staff!
+              </AnimatedButton>
+            </Stack>
+          </Section>
+        </Grid>
+      </Grid>
     </Stack>
   )
 }

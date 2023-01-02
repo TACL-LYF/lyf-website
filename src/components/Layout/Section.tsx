@@ -22,7 +22,7 @@ export default function Section({
       }}
     >
       {maxWidth ? (
-        <Container maxWidth={maxWidth}>{children}</Container>
+        <Container maxWidth={maxWidth} sx={{height: 1}}>{children}</Container>
       ) : (
         children
       )}
