@@ -195,18 +195,13 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
 
       {/* Whole Person Leadership */}
       <Section>
-        <Grid
-          container
-          alignItems="stretch"
-          justifyContent="space-between"
-          spacing={4}
-        >
+        <Grid container justifyContent="space-between">
           <Grid xs={12} md={6}>
             <Placeholder />
           </Grid>
           <Grid
             xs={12}
-            md={6}
+            md={5}
             sx={{
               padding: { xs: 0, md: 4 },
             }}
