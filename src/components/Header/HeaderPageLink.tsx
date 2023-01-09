@@ -4,6 +4,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import { navigate } from "gatsby"
 
 import LinkButton from "@components/Button/LinkButton"
+import useAnchorElement from "@hooks/useAnchorElement"
 
 export type Page = {
   to?: string // if we have subPages, then we don't link to anything
@@ -17,11 +18,15 @@ type HeaderPageLinkProps = {
 
 export default function HeaderPageLink({ page }: HeaderPageLinkProps) {
   const { to, text, subPages } = page
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) =>
-    setAnchorEl(event.currentTarget)
-  const handleClose = () => setAnchorEl(null)
+  const [anchorEl, open, toggleElement, setAnchorEl] = useAnchorElement()
+
+  const navigateAndClose = (to?: string) => () => {
+    if (to) {
+      navigate(to)
+    }
+
+    setAnchorEl(null)
+  }
 
   // id and aria-* props necessary for accessibility purposes.
   const textHypenated = text.replaceAll(" ", "-").toLocaleLowerCase()
@@ -34,7 +39,7 @@ export default function HeaderPageLink({ page }: HeaderPageLinkProps) {
         id={id}
         aria-controls={open ? `button-menu-to-${to}` : undefined}
         aria-haspopup="true"
-        onClick={handleClick}
+        onClick={toggleElement(true)}
         to={to}
         href={to && to.startsWith("http") ? to : undefined}
         color="inherit"
@@ -47,7 +52,7 @@ export default function HeaderPageLink({ page }: HeaderPageLinkProps) {
           id={menuId}
           anchorEl={anchorEl}
           open={open}
-          onClose={handleClose}
+          onClose={toggleElement(false)}
           MenuListProps={{
             "aria-labelledby": id,
           }}
@@ -61,7 +66,10 @@ export default function HeaderPageLink({ page }: HeaderPageLinkProps) {
           }}
         >
           {subPages.map((subPage, index) => (
-            <MenuItem key={`${text}-${id}-${index}`} onClick={handleClose}>
+            <MenuItem
+              key={`${text}-${id}-${index}`}
+              onClick={navigateAndClose(subPage.to)}
+            >
               {subPage.text}
             </MenuItem>
           ))}
