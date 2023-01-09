@@ -5,19 +5,16 @@ import {
   Box,
   Button,
   IconButton,
-  Menu,
-  MenuItem,
   List,
   ListItem,
   Stack,
   SwipeableDrawer,
   Toolbar,
-  Typography,
   ListItemButton,
   ListItemText,
 } from "@mui/material"
 import { Menu as MenuIcon } from "@mui/icons-material"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 import Logo from "@components/Logo"
 import CTABanner from "./CTABanner"
@@ -28,15 +25,15 @@ const PAGES: Page[] = [
     text: "About Us",
     subPages: [
       {
-        // to: "/about-us",
-        text: "Mission & Values",
+        to: "/about-us/leadership",
+        text: "Leadership",
       },
       {
-        // to: "/about-us",
+        to: "/about-us/culture",
         text: "Cultural Stance",
       },
       {
-        // to: "/about-us",
+        to: "/about-us/history",
         text: "History of LYF",
       },
     ],
@@ -45,8 +42,12 @@ const PAGES: Page[] = [
     text: "LYF Camp",
     subPages: [
       {
-        // to: "/lyf-camp",
-        text: "Placeholder",
+        to: "/camp/lyf-camp",
+        text: "What is LYF Camp?",
+      },
+      {
+        to: "/camp/faqs",
+        text: "FAQs",
       },
     ],
   },
@@ -54,8 +55,12 @@ const PAGES: Page[] = [
     text: "Get Involved",
     subPages: [
       {
-        // to: "/lyf-camp",
-        text: "Placeholder",
+        to: "/get-involved/join-our-team",
+        text: "Join Our Team",
+      },
+      {
+        to: "/get-involved/support-lyf",
+        text: "Donate",
       },
     ],
   },
@@ -76,6 +81,24 @@ export default function Header() {
       }
 
       setDrawerOpen(open)
+    }
+
+  const navigateAndCloseDrawer =
+    (to?: string) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event &&
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return
+      }
+
+      setDrawerOpen(false)
+
+      if (to) {
+        navigate(to)
+      }
     }
 
   return (
@@ -102,11 +125,25 @@ export default function Header() {
             >
               <List>
                 {PAGES.map((page) => (
-                  <ListItem key={page.text} disablePadding>
-                    <ListItemButton onClick={toggleDrawer(false)}>
-                      <ListItemText>{page.text}</ListItemText>
-                    </ListItemButton>
+                  <>
+                  <ListItem key={page.text}>
+                    <ListItemText>{page.text}</ListItemText>
                   </ListItem>
+                    {page.subPages ? (
+                      <List sx={{pl: 4}} disablePadding>
+                        {page.subPages.map((subPage) => (
+                          <ListItemButton
+                            key={subPage.text}
+                            onClick={navigateAndCloseDrawer(subPage.to)}
+                          >
+                            <ListItemText>{subPage.text}</ListItemText>
+                          </ListItemButton>
+                        ))}
+                      </List>
+                    ) : (
+                      <></>
+                    )}
+                    </>
                 ))}
               </List>
             </SwipeableDrawer>
