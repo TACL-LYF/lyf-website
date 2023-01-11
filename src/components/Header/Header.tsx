@@ -59,7 +59,7 @@ const PAGES: Page[] = [
         text: "Join Our Team",
       },
       {
-        to: "/get-involved/support-lyf",
+        to: "/get-involved/donate",
         text: "Donate",
       },
     ],
