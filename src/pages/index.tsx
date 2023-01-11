@@ -10,6 +10,7 @@ import { PhotoGrid, Goals, Statistics } from "@components/IndexPage"
 import PortableText from "@components/PortableText"
 import { LinkWithIcon } from "@components/Link"
 import { Section } from "@components/Layout"
+import { VennDiagram } from "@components/WholePersonLeadership"
 
 export const query = graphql`
   query IndexPage {
@@ -197,7 +198,8 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       <Section>
         <Grid container justifyContent="space-between">
           <Grid xs={12} md={6}>
-            <Placeholder />
+            {/* <Placeholder /> */}
+            <VennDiagram />
           </Grid>
           <Grid
             xs={12}
