@@ -102,7 +102,7 @@ export default function Header() {
     }
 
   return (
-    <>
+    <header>
       <CTABanner />
       <AppBar position="static" color="default">
         <Toolbar sx={{ marginLeft: { xs: 0, md: 4 }, marginRight: 4 }}>
@@ -184,6 +184,6 @@ export default function Header() {
           </Stack>
         </Toolbar>
       </AppBar>
-    </>
+    </header>
   )
 }
