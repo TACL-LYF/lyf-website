@@ -18,6 +18,9 @@ const PINK: PaletteColorOptions = {
   dark: '#DA0758',
 }
 
+const bodyFontFamily = {
+  fontFamily: "Arial, sans-serif",
+}
 
 const theme = createTheme({
   palette: {
@@ -27,6 +30,12 @@ const theme = createTheme({
   },
   shape: {
     borderRadius: 4
+  },
+  typography: {
+    fontFamily: '"Nunito", -apple-system, sans-serif',
+    subtitle1: bodyFontFamily,
+    body1: bodyFontFamily,
+    body2: bodyFontFamily
   }
 })
 
