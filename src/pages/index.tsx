@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Box, Stack, Typography, styled } from "@mui/material"
+import { Box, Container, Stack, Typography } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import { Favorite, AutoAwesome, RocketLaunch } from "@mui/icons-material"
 import { graphql, PageProps } from "gatsby"
@@ -93,7 +93,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           {/* Header */}
           <Grid xs={12} md={6}>
             <Typography
-              variant="h1"
+              variant="h2"
               textAlign={{
                 xs: "center",
                 md: "left",
@@ -144,11 +144,14 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           display: { xs: "none", md: "block" },
         }}
       >
-        <Stack spacing={4}>
+        <Stack spacing={4} alignItems="center">
           <Typography variant="h3" textAlign="center">
             {sanityHomePage.aboutHeader}
           </Typography>
+          <Container maxWidth="sm" sx={{textAlign: "center"}}>
           <PortableText content={sanityHomePage._rawAboutBody} />
+          </Container>
+
         </Stack>
       </Section>
 

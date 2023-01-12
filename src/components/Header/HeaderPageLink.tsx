@@ -45,7 +45,7 @@ export default function HeaderPageLink({ page }: HeaderPageLinkProps) {
         color="inherit"
         endIcon={subPages ? <ExpandMoreIcon /> : <></>}
       >
-        {text}
+        <b>{text}</b>
       </LinkButton>
       {subPages ? (
         <Menu
