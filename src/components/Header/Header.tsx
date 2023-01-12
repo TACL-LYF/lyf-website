@@ -125,12 +125,12 @@ export default function Header() {
             >
               <List>
                 {PAGES.map((page) => (
-                  <>
-                  <ListItem key={page.text}>
-                    <ListItemText>{page.text}</ListItemText>
-                  </ListItem>
+                  <React.Fragment key={page.text}>
+                    <ListItem key={page.text}>
+                      <ListItemText>{page.text}</ListItemText>
+                    </ListItem>
                     {page.subPages ? (
-                      <List sx={{pl: 4}} disablePadding>
+                      <List sx={{ pl: 4 }} disablePadding>
                         {page.subPages.map((subPage) => (
                           <ListItemButton
                             key={subPage.text}
@@ -143,7 +143,7 @@ export default function Header() {
                     ) : (
                       <></>
                     )}
-                    </>
+                  </React.Fragment>
                 ))}
               </List>
             </SwipeableDrawer>
