@@ -197,15 +197,17 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       {/* Whole Person Leadership */}
       <Section>
         <Grid container justifyContent="space-between">
-          <Grid xs={12} md={6}>
+          <Grid xs={12} lg={6} sx={{
+            display: { xs: "none", lg: "block"}
+          }}>
             {/* <Placeholder /> */}
             <VennDiagram />
           </Grid>
           <Grid
             xs={12}
-            md={5}
+            lg={6}
             sx={{
-              padding: { xs: 0, md: 4 },
+              padding: { xs: 0, lg: 4 },
             }}
           >
             <Stack spacing={2}>
