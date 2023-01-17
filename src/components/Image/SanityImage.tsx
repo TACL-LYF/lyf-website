@@ -5,6 +5,7 @@ import { styled } from "@mui/material"
 
 export const sanityImageFragment = graphql`
   fragment SanityImageAsset on SanityImage {
+    _key
     asset {
       altText
       gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)

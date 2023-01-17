@@ -28,7 +28,7 @@ const SanityButton = React.forwardRef<HTMLButtonElement, SanityButtonProps>(
     const { text, link, variant } = content
 
     const sharedProps = {
-      href: link,
+      href: link || undefined,
       variant: variant,
       ref: ref,
       ...rest,
