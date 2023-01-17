@@ -22,6 +22,7 @@
     "@mui/material": "^5.10.12",
     "@portabletext/react": "^2.0.0",
     "@react-spring/web": "^9.5.5",
+    "date-fns": "^2.29.3",
     "gatsby": "^5.0.0",
     "gatsby-plugin-image": "^3.3.2",
     "gatsby-plugin-sharp": "^5.0.0",
