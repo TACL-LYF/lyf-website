@@ -38,9 +38,9 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       text
     }
     type SanityButton implements Node {
-      text: String!
+      text: String
       variant: ButtonVariant!
-      link: String!
+      link: String
     }
   `
 
