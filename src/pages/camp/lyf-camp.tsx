@@ -6,6 +6,7 @@ import Grid from "@mui/material/Unstable_Grid2"
 import { Section } from "@components/Layout"
 import { Statistics } from "@components/IndexPage"
 import SanityImage from "@components/Image/SanityImage"
+import Event from "@components/Event"
 
 export const query = graphql`
   query LYFCampPage {
@@ -16,7 +17,7 @@ export const query = graphql`
         ...SanityImageAsset
       }
       eventsToDisplay {
-        id
+        ...SanityEvent
       }
       activities {
         ...SanityCard
@@ -59,18 +60,25 @@ export default function LYFCampPage({
             }}
           >
             <ImageList variant="quilted" cols={2}>
-              {headerPhotos.map((image,index) => (
-                <ImageListItem key={image?._key} cols={1} rows={index == 0 ? 2 : 1} >
+              {headerPhotos.map((image, index) => (
+                <ImageListItem
+                  key={image?._key}
+                  cols={1}
+                  rows={index == 0 ? 2 : 1}
+                >
                   <SanityImage imageAsset={image} />
                 </ImageListItem>
               ))}
             </ImageList>
           </Grid>
           <Grid xs={12} lg={6}>
-            <Stack spacing={6} padding={{
-              xs: 2,
-              lg: 6
-            }}>
+            <Stack
+              spacing={6}
+              padding={{
+                xs: 2,
+                lg: 6,
+              }}
+            >
               <Typography variant="h3" color="white">
                 {sanityLyfCampPage?.mainHeader}
               </Typography>
@@ -93,8 +101,15 @@ export default function LYFCampPage({
 
       {/* Upcoming Events */}
       <Section>
-        <Grid container>
-          <Typography variant="h4">Attend our upcoming events</Typography>
+        <Grid container alignItems="stretch" spacing={4}>
+          <Grid xs={12}>
+            <Typography variant="h4">Attend our upcoming events</Typography>
+          </Grid>
+          {sanityLyfCampPage?.eventsToDisplay?.map((event) => (
+            <Grid xs={12} md={6} key={event?.id}>
+              <Event content={event} />
+            </Grid>
+          ))}
         </Grid>
       </Section>
 
