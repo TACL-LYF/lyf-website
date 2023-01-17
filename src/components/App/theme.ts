@@ -27,6 +27,7 @@ const theme = createTheme({
     primary: PINK,
     secondary: SAFFRON_YELLOW,
     tertiary: TEAL,
+    gray: "#514B4D",
   },
   shape: {
     borderRadius: 4

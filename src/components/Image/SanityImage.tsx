@@ -18,11 +18,11 @@ const StyledGatsbyImage = styled(GatsbyImage)(({theme}) => ({
 }))
 
 type SanityImageProps = Omit<GatsbyImageProps, "image" | "alt"> & {
-  imageAsset: Queries.SanityImageAssetFragment | null,
+  imageAsset: Queries.SanityImageAssetFragment | null | undefined,
   hasRoundedCorners?: boolean
 }
 
-export default function SanityImage({imageAsset, hasRoundedCorners = false, ...rest}: SanityImageProps) {
+export default function SanityImage({imageAsset, hasRoundedCorners = true, ...rest}: SanityImageProps) {
   if (!imageAsset?.asset?.gatsbyImageData) {
     return <></>
   }
