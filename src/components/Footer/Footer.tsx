@@ -83,7 +83,9 @@ export default function Footer() {
             <Grid key={`footerLinkStack-${i}`}>
               <Stack>
                 {link.map(({ text, to }, j) => (
-                  <Link to={to}>
+                  <Link to={to} key={`${to}-${j}`} style={{
+                    textDecoration: "none"
+                  }}>
                     <FooterText text={text} />
                   </Link>
                 ))}

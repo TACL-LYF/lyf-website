@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 
 export const cardFragment = graphql`
   fragment SanityCard on SanityCard {
+    _key
     title
     image {
       ...SanityImageAsset
