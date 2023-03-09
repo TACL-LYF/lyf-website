@@ -18,7 +18,7 @@ Follow [the yarn installation docs](https://classic.yarnpkg.com/en/docs/install)
 
 ### Gatsby
 
-You will have to install gatsby-cli which you can do with `yarn add -g gatsby-cli`
+You will have to install gatsby-cli which you can do with `npm install -g gatsby-cli`
 Their website has a nice [tutorial](https://www.gatsbyjs.org/tutorial/) which I recommend following.
 
 You also can find the original [Gatsby's original README.md here](https://github.com/gatsbyjs/gatsby-starter-hello-world). That doc details a quick look at some file structure and basic files for this repo
