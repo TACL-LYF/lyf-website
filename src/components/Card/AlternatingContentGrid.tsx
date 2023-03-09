@@ -20,7 +20,7 @@ export default function AlternatingContentGrid({
   content,
 }: AlternatingContentGridProps) {
   const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.up("md"))
+  const matches = useMediaQuery(theme.breakpoints.up("lg"))
   if (!content) return <></>
 
   return (
@@ -39,10 +39,10 @@ export default function AlternatingContentGrid({
             alignItems="stretch"
             spacing={1}
             justifyContent="space-between"
-            // justifyContent={index % 2 === 0 ? "flex-start" : "flex-end"}
+          // justifyContent={index % 2 === 0 ? "flex-start" : "flex-end"}
           >
             {(index % 2 === 0 || !matches) && (
-              <Grid xs={12} md={6}>
+              <Grid xs={12} lg={6}>
                 <Stack
                   direction="row"
                   spacing={1}
@@ -56,17 +56,17 @@ export default function AlternatingContentGrid({
             )}
             <Grid
               xs={12}
-              md={6}
+              lg={6}
               alignSelf="center"
               justifySelf={index % 2 === 0 ? "end" : "start"}
             >
-              <Stack padding={{ xs: 2, md: 6 }} color="gray" spacing={2}>
+              <Stack padding={{ xs: 2, lg: 6 }} color="gray" spacing={2}>
                 <Typography variant="h4">{card?.title}</Typography>
                 <PortableText content={card?._rawDescription} />
               </Stack>
             </Grid>
             {index % 2 === 1 && matches && (
-              <Grid xs={12} md={6}>
+              <Grid xs={12} lg={6}>
                 <Stack
                   direction="row"
                   spacing={1}

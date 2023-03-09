@@ -17,3 +17,10 @@ export const cardFragment = graphql`
     }
   }
 `
+
+export const titleBody = graphql`
+  fragment SanityTitleBody on SanityTitleBody {
+    title
+    _rawBody
+  }
+`

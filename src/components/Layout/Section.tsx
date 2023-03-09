@@ -17,14 +17,14 @@ export default function Section({
     <Box
       sx={{
         padding: { xs: 3, md: 10 },
-        paddingTop: {xs: 5, md: 10},
-        paddingBottom: {xs: 5, md: 10},
+        paddingTop: { xs: 5, md: 10 },
+        paddingBottom: { xs: 5, md: 10 },
         backgroundColor: backgroundColor,
         ...sx,
       }}
     >
       {maxWidth ? (
-        <Container maxWidth={maxWidth} sx={{height: 1}}>{children}</Container>
+        <Container maxWidth={maxWidth} sx={{ height: 1 }}>{children}</Container>
       ) : (
         children
       )}
