@@ -3,6 +3,7 @@ import { PageProps, graphql } from "gatsby"
 import { Stack, Typography } from "@mui/material"
 
 import { Section } from "@components/Layout"
+import getPageTitle from "@utils/getPageTitle"
 
 export const query = graphql`
   query HistoryPage {
@@ -12,6 +13,8 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = getPageTitle("History")
 
 export default function HistoryPage({
   data,

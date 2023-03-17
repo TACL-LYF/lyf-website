@@ -16,6 +16,7 @@ import { ExpandLess, ExpandMore } from "@mui/icons-material"
 
 import { Section } from "@components/Layout"
 import PortableText from "@components/PortableText"
+import getPageTitle from "@utils/getPageTitle"
 
 type FAQProps = {
   question: {
@@ -79,6 +80,8 @@ export const query = graphql`
   }
 `
 
+export const Head = getPageTitle("FAQ")
+
 export default function FAQsPage({ data }: PageProps<Queries.FAQsPageQuery>) {
   const { sanityFaqPage } = data
   if (!sanityFaqPage) throw `No Sanity document for the culture page was found.`
@@ -121,7 +124,13 @@ export default function FAQsPage({ data }: PageProps<Queries.FAQsPageQuery>) {
           <Typography variant="h4">
             Have other questions? Contact us for more information!
           </Typography>
-          <Button variant="contained" color="primary" href="mailto:lyf@tacl.org" size="medium" fullWidth={false}>
+          <Button
+            variant="contained"
+            color="primary"
+            href="mailto:lyf@tacl.org"
+            size="medium"
+            fullWidth={false}
+          >
             Email Us
           </Button>
         </Stack>
