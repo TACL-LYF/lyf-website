@@ -3,6 +3,7 @@ import { PageProps, graphql } from "gatsby"
 import { Stack, Typography } from "@mui/material"
 
 import { Section } from "@components/Layout"
+import getPageTitle from "@utils/getPageTitle"
 
 export const query = graphql`
   query DonatePage {
@@ -12,6 +13,8 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = getPageTitle("Donate")
 
 export default function DonatePage({
   data,

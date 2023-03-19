@@ -11,6 +11,7 @@ import PortableText from "@components/PortableText"
 import { LinkWithIcon } from "@components/Link"
 import { Section } from "@components/Layout"
 import { VennDiagram } from "@components/WholePersonLeadership"
+import getPageTitle from "@utils/getPageTitle"
 
 export const query = graphql`
   query IndexPage {
@@ -74,6 +75,8 @@ const Placeholder = () => (
     }}
   />
 )
+
+export const Head = getPageTitle("Home")
 
 export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
   const { sanityHomePage } = data
@@ -148,10 +151,9 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           <Typography variant="h3" textAlign="center">
             {sanityHomePage.aboutHeader}
           </Typography>
-          <Container maxWidth="sm" sx={{textAlign: "center"}}>
-          <PortableText content={sanityHomePage._rawAboutBody} />
+          <Container maxWidth="sm" sx={{ textAlign: "center" }}>
+            <PortableText content={sanityHomePage._rawAboutBody} />
           </Container>
-
         </Stack>
       </Section>
 
@@ -200,9 +202,13 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       {/* Whole Person Leadership */}
       <Section>
         <Grid container justifyContent="space-between">
-          <Grid xs={12} lg={5} sx={{
-            display: { xs: "none", lg: "block"}
-          }}>
+          <Grid
+            xs={12}
+            lg={5}
+            sx={{
+              display: { xs: "none", lg: "block" },
+            }}
+          >
             {/* <Placeholder /> */}
             <VennDiagram />
           </Grid>

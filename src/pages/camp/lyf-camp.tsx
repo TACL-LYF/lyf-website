@@ -8,6 +8,7 @@ import { Statistics } from "@components/IndexPage"
 import SanityImage from "@components/Image/SanityImage"
 import Event from "@components/Event"
 import { AlternatingContentGrid, CardWithMedia } from "@components/Card"
+import getPageTitle from "@utils/getPageTitle"
 
 export const query = graphql`
   query LYFCampPage {
@@ -37,6 +38,8 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = getPageTitle("LYF Camp")
 
 export default function LYFCampPage({
   data,
@@ -118,22 +121,22 @@ export default function LYFCampPage({
       <Section backgroundColor="secondary.light">
         <Grid container alignItems="stretch" spacing={4}>
           <Grid xs={12}>
-          <Typography variant="h4">
-            Find your voice in workshops and sing-alongs
-          </Typography>
+            <Typography variant="h4">
+              Find your voice in workshops and sing-alongs
+            </Typography>
           </Grid>
 
-          {sanityLyfCampPage?.activities?.map((activity) =>
+          {sanityLyfCampPage?.activities?.map((activity) => (
             <Grid key={activity?._key} xs={12} md={4}>
-            <CardWithMedia
-              header={activity?.title}
-              image={activity?.image}
-              content={activity?._rawDescription}
-              button={activity?.button}
-              shadowColor="secondary"
-            />
+              <CardWithMedia
+                header={activity?.title}
+                image={activity?.image}
+                content={activity?._rawDescription}
+                button={activity?.button}
+                shadowColor="secondary"
+              />
             </Grid>
-          )}
+          ))}
         </Grid>
       </Section>
 
