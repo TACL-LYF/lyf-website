@@ -47,9 +47,9 @@ export default function JoinOurTeamPage({
     <>
       {/* Header */}
       <Section backgroundColor="tertiary.light">
-        <Grid container justifyContent="space-between" flexWrap="wrap">
+        <Grid container justifyContent="space-between">
           {/* Header text + button */}
-          <Grid xs={12} lg={5}>
+          <Grid xs={12} md={6}>
             <Stack spacing={6} alignItems={{ xs: "center", md: "self-start" }} padding={{ xs: 2, lg: 12 }}>
               <Typography variant="h3" color="black" textAlign={{ xs: "center", md: "left" }}>
                 {sanityJoinOurTeamPage?.mainHeader}
@@ -62,7 +62,7 @@ export default function JoinOurTeamPage({
               </SanityButton>
             </Stack>
           </Grid>
-          <Grid xs={12} md={6}>
+          <Grid md={6} sx={{ display:{ xs: "none", md: "flex" } }} justifyContent="center" alignItems="center">
             <SanityImage imageAsset={sanityJoinOurTeamPage.headerImage}>
             </SanityImage>
           </Grid>
