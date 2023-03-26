@@ -81,14 +81,40 @@ export default function JoinOurTeamPage({
               </Typography>
             </Stack>
           </Grid>
-          {sanityJoinOurTeamPage?.volunteerImpact?.map((reason) =>
-            <Grid key={reason?._key} xs={12} md={4}>
+          {sanityJoinOurTeamPage?.volunteerImpact?.map((card) =>
+            <Grid key={card?._key} xs={12} md={4}>
             <CardWithMedia
-              header={reason?.title}
-              image={reason?.image}
-              content={reason?._rawDescription}
-              button={reason?.button}
+              header={card?.title}
+              image={card?.image}
+              content={card?._rawDescription}
+              button={card?.button}
               shadowColor="secondary"
+            />
+            </Grid>
+          )}
+        </Grid>
+      </Section>
+      {/* How you can get involved section */}
+      <Section backgroundColor="primary.light">
+        <Grid container alignItems="stretch" spacing={4}>
+          <Grid xs={12}>
+            <Stack spacing={6} alignItems="center">
+              <Typography variant="h3" textAlign="center">
+                How can you get involved?
+              </Typography>
+              <Typography variant="h6" textAlign="center">
+                TODO: get this content from graphql query
+              </Typography>
+            </Stack>
+          </Grid>
+          {sanityJoinOurTeamPage?.getInvolved?.map((card) =>
+            <Grid key={card?._key} xs={12} md={6}>
+            <CardWithMedia
+              header={card?.title}
+              image={card?.image}
+              content={card?._rawDescription}
+              button={card?.button}
+              shadowColor="primary"
             />
             </Grid>
           )}
