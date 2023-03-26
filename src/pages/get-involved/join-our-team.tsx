@@ -27,6 +27,9 @@ export const query = graphql`
         ...SanityCard
       }
       interestForm
+      interestFormButton {
+        ...SanityButton
+      }
       upNext {
         ...SanityCard
       }
@@ -58,6 +61,8 @@ export default function JoinOurTeamPage({
                 {sanityJoinOurTeamPage?.subHeader}
               </Typography>
               <SanityButton
+              isAnimated
+              boopProps={{ scale: 1.1 }}
               content={sanityJoinOurTeamPage.headerButton}>
               </SanityButton>
             </Stack>
@@ -119,6 +124,25 @@ export default function JoinOurTeamPage({
             </Grid>
           )}
         </Grid>
+      </Section>
+      {/* Volunteer interest button section */}
+      <Section>
+        <Stack
+          alignItems="center"
+          spacing={4}
+          justifyContent="center"
+          sx={{
+            height: 1,
+          }}>
+          <Typography variant="h4" textAlign="center">
+            {sanityJoinOurTeamPage?.interestForm}
+          </Typography>
+          <SanityButton
+          isAnimated
+          boopProps={{ scale: 1.1 }}
+          content={sanityJoinOurTeamPage.interestFormButton}>
+          </SanityButton>
+        </Stack>
       </Section>
     </>
   )
