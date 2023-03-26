@@ -144,6 +144,28 @@ export default function JoinOurTeamPage({
           </SanityButton>
         </Stack>
       </Section>
+      {/* Up next section */}
+      {/* TODO: I wasn't able to find off white in the theme, we should add it? */}
+      <Section backgroundColor="#F8F2F4">
+        <Grid container alignItems="stretch" spacing={4}>
+          <Grid xs={12}>
+            <Typography variant="h3" textAlign="left">
+              Up Next
+            </Typography>
+          </Grid>
+          {sanityJoinOurTeamPage?.upNext?.map((card) =>
+            <Grid key={card?._key} xs={12} md={6} sx={{ height: "fit-content" }}>
+            <CardWithMedia
+              header={card?.title}
+              image={card?.image}
+              content={card?._rawDescription}
+              button={card?.button}
+              shadowColor="primary"
+            />
+            </Grid>
+          )}
+        </Grid>
+      </Section>
     </>
   )
 }
