@@ -34,17 +34,6 @@ export const query = graphql`
   }
 `
 
-const Placeholder = () => (
-  <Box
-    sx={{
-      width: 1,
-      height: 1,
-      backgroundColor: "primary.main",
-      borderRadius: 5,
-    }}
-  />
-)
-
 export const Head = getPageTitle("Join Our Team")
 
 export default function JoinOurTeamPage({
