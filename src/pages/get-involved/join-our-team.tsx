@@ -53,23 +53,41 @@ export default function JoinOurTeamPage({
         <Grid container justifyContent="space-between">
           {/* Header text + button */}
           <Grid xs={12} md={6}>
-            <Stack spacing={6} alignItems={{ xs: "center", md: "self-start" }} padding={{ xs: 2, lg: 12 }}>
-              <Typography variant="h3" color="black" textAlign={{ xs: "center", md: "left" }}>
+            <Stack
+              spacing={6}
+              alignItems={{ xs: "center", md: "self-start" }}
+              padding={{ xs: 2, lg: 12 }}
+            >
+              <Typography
+                variant="h3"
+                color="black"
+                textAlign={{ xs: "center", md: "left" }}
+              >
                 {sanityJoinOurTeamPage?.mainHeader}
               </Typography>
-              <Typography variant="h6" color="black" textAlign={{ xs: "center", md: "left" }}>
+              <Typography
+                variant="h6"
+                color="black"
+                textAlign={{ xs: "center", md: "left" }}
+              >
                 {sanityJoinOurTeamPage?.subHeader}
               </Typography>
               <SanityButton
-              isAnimated
-              boopProps={{ scale: 1.1 }}
-              content={sanityJoinOurTeamPage.headerButton}>
-              </SanityButton>
+                isAnimated
+                boopProps={{ scale: 1.1 }}
+                content={sanityJoinOurTeamPage.headerButton}
+              ></SanityButton>
             </Stack>
           </Grid>
-          <Grid md={6} sx={{ display:{ xs: "none", md: "flex" } }} justifyContent="center" alignItems="center">
-            <SanityImage imageAsset={sanityJoinOurTeamPage.headerImage}>
-            </SanityImage>
+          <Grid
+            md={6}
+            sx={{ display: { xs: "none", md: "flex" } }}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <SanityImage
+              imageAsset={sanityJoinOurTeamPage.headerImage}
+            ></SanityImage>
           </Grid>
         </Grid>
       </Section>
@@ -86,17 +104,17 @@ export default function JoinOurTeamPage({
               </Typography>
             </Stack>
           </Grid>
-          {sanityJoinOurTeamPage?.volunteerImpact?.map((card) =>
+          {sanityJoinOurTeamPage?.volunteerImpact?.map((card) => (
             <Grid key={card?._key} xs={12} md={4}>
-            <CardWithMedia
-              header={card?.title}
-              image={card?.image}
-              content={card?._rawDescription}
-              button={card?.button}
-              shadowColor="secondary"
-            />
+              <CardWithMedia
+                header={card?.title}
+                image={card?.image}
+                content={card?._rawDescription}
+                button={card?.button}
+                shadowColor="secondary"
+              />
             </Grid>
-          )}
+          ))}
         </Grid>
       </Section>
       {/* How you can get involved section */}
@@ -112,17 +130,17 @@ export default function JoinOurTeamPage({
               </Typography>
             </Stack>
           </Grid>
-          {sanityJoinOurTeamPage?.getInvolved?.map((card) =>
+          {sanityJoinOurTeamPage?.getInvolved?.map((card) => (
             <Grid key={card?._key} xs={12} md={6}>
-            <CardWithMedia
-              header={card?.title}
-              image={card?.image}
-              content={card?._rawDescription}
-              button={card?.button}
-              shadowColor="primary"
-            />
+              <CardWithMedia
+                header={card?.title}
+                image={card?.image}
+                content={card?._rawDescription}
+                button={card?.button}
+                shadowColor="primary"
+              />
             </Grid>
-          )}
+          ))}
         </Grid>
       </Section>
       {/* Volunteer interest button section */}
@@ -133,15 +151,16 @@ export default function JoinOurTeamPage({
           justifyContent="center"
           sx={{
             height: 1,
-          }}>
+          }}
+        >
           <Typography variant="h4" textAlign="center">
             {sanityJoinOurTeamPage?.interestForm}
           </Typography>
           <SanityButton
-          isAnimated
-          boopProps={{ scale: 1.1 }}
-          content={sanityJoinOurTeamPage.interestFormButton}>
-          </SanityButton>
+            isAnimated
+            boopProps={{ scale: 1.1 }}
+            content={sanityJoinOurTeamPage.interestFormButton}
+          ></SanityButton>
         </Stack>
       </Section>
       {/* Up next section */}
@@ -153,17 +172,22 @@ export default function JoinOurTeamPage({
               Up Next
             </Typography>
           </Grid>
-          {sanityJoinOurTeamPage?.upNext?.map((card) =>
-            <Grid key={card?._key} xs={12} md={6} sx={{ height: "fit-content" }}>
-            <CardWithMedia
-              header={card?.title}
-              image={card?.image}
-              content={card?._rawDescription}
-              button={card?.button}
-              shadowColor="primary"
-            />
+          {sanityJoinOurTeamPage?.upNext?.map((card) => (
+            <Grid
+              key={card?._key}
+              xs={12}
+              md={6}
+              sx={{ height: "fit-content" }}
+            >
+              <CardWithMedia
+                header={card?.title}
+                image={card?.image}
+                content={card?._rawDescription}
+                button={card?.button}
+                shadowColor="primary"
+              />
             </Grid>
-          )}
+          ))}
         </Grid>
       </Section>
     </>
