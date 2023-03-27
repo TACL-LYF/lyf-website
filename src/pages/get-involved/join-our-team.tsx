@@ -1,6 +1,6 @@
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
-import { Box, Stack, Typography } from "@mui/material"
+import { Stack, Typography } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 
 import { Section } from "@components/Layout"
