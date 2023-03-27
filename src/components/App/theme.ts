@@ -28,6 +28,7 @@ const theme = createTheme({
     secondary: SAFFRON_YELLOW,
     tertiary: TEAL,
     gray: "#514B4D",
+    offwhite: "#F8F2F4"
   },
   shape: {
     borderRadius: 4
