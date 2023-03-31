@@ -2049,6 +2049,14 @@
     "@react-spring/shared" "~9.6.1"
     "@react-spring/types" "~9.6.1"
 
+"@react-spring/animated@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.7.1.tgz#0f2d78184ee0cce703acd41abb87ea56765b5713"
+  integrity sha512-EX5KAD9y7sD43TnLeTNG1MgUVpuRO1YaSJRPawHNRgUWYfILge3s85anny4S4eTJGpdp5OoFV2kx9fsfeo0qsw==
+  dependencies:
+    "@react-spring/shared" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
+
 "@react-spring/core@~9.6.1":
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.6.1.tgz#ebe07c20682b360b06af116ea24e2b609e778c10"
@@ -2059,10 +2067,45 @@
     "@react-spring/shared" "~9.6.1"
     "@react-spring/types" "~9.6.1"
 
+"@react-spring/core@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.7.1.tgz#cfe176a48ee0a05545b1af5f2fbae718b50e9a99"
+  integrity sha512-8K9/FaRn5VvMa24mbwYxwkALnAAyMRdmQXrARZLcBW2vxLJ6uw9Cy3d06Z8M12kEqF2bDlccaCSDsn2bSz+Q4A==
+  dependencies:
+    "@react-spring/animated" "~9.7.1"
+    "@react-spring/rafz" "~9.7.1"
+    "@react-spring/shared" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
+
+"@react-spring/konva@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/konva/-/konva-9.7.1.tgz#25640892f88bde06c3ab96c875e5f7408abbce43"
+  integrity sha512-74svXHtUJi6Tvk9mNLUV1/1WfU8MdWsTK6JUpvmJr/rUr8r3FdOokk22icbgEg6AjxCkIf5e2WFovCCHUSyS0w==
+  dependencies:
+    "@react-spring/animated" "~9.7.1"
+    "@react-spring/core" "~9.7.1"
+    "@react-spring/shared" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
+
+"@react-spring/native@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/native/-/native-9.7.1.tgz#3f397f946fc9a7dd4d7d432f8c0a4726d7723751"
+  integrity sha512-dHWeH0UuE+Rxc3YZFLp8Aq0RBP07sdOgI7pLVG46OzkMRs2RtJeWJxB6UXIWAgcYDqWDk2REAPhLD3ItDl0tDQ==
+  dependencies:
+    "@react-spring/animated" "~9.7.1"
+    "@react-spring/core" "~9.7.1"
+    "@react-spring/shared" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
+
 "@react-spring/rafz@~9.6.1":
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/@react-spring/rafz/-/rafz-9.6.1.tgz#d71aafb92b78b24e4ff84639f52745afc285c38d"
   integrity sha512-v6qbgNRpztJFFfSE3e2W1Uz+g8KnIBs6SmzCzcVVF61GdGfGOuBrbjIcp+nUz301awVmREKi4eMQb2Ab2gGgyQ==
+
+"@react-spring/rafz@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/rafz/-/rafz-9.7.1.tgz#bdfea463fcb5ddc4e7253a8fa3870dd52ebbc59a"
+  integrity sha512-JSsrRfbEJvuE3w/uvU3mCTuWwpQcBXkwoW14lBgzK9XJhuxmscGo59AgJUpFkGOiGAVXFBGB+nEXtSinFsopgw==
 
 "@react-spring/shared@~9.6.1":
   version "9.6.1"
@@ -2072,10 +2115,33 @@
     "@react-spring/rafz" "~9.6.1"
     "@react-spring/types" "~9.6.1"
 
+"@react-spring/shared@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/shared/-/shared-9.7.1.tgz#29611bb63d0c9e1ac18b6ced7aa4db1d48d136f3"
+  integrity sha512-R2kZ+VOO6IBeIAYTIA3C1XZ0ZVg/dDP5FKtWaY8k5akMer9iqf5H9BU0jyt3Qtxn0qQY7whQdf6MTcWtKeaawg==
+  dependencies:
+    "@react-spring/rafz" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
+
+"@react-spring/three@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/three/-/three-9.7.1.tgz#0dab3b5e96bb6e10db0a1363938e46fc68a861e4"
+  integrity sha512-5leUe0PDwIIw1M3GN3788zwTY4Ykyy+kNvQmg9+Hqs1DN3T8J1ovRTGwqWfGAu4ApTta9p5BH7SWNxxt3NO59Q==
+  dependencies:
+    "@react-spring/animated" "~9.7.1"
+    "@react-spring/core" "~9.7.1"
+    "@react-spring/shared" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
+
 "@react-spring/types@~9.6.1":
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.6.1.tgz#913d3a68c5cbc1124fdb18eff919432f7b6abdde"
   integrity sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==
+
+"@react-spring/types@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.7.1.tgz#b540752a479d210c6fb68d2b1d5ff35556df4308"
+  integrity sha512-yBcyfKUeZv9wf/ZFrQszvhSPuDx6Py6yMJzpMnS+zxcZmhXPeOCKZSHwqrUz1WxvuRckUhlgb7eNI/x5e1e8CA==
 
 "@react-spring/web@^9.5.5":
   version "9.6.1"
@@ -2086,6 +2152,26 @@
     "@react-spring/core" "~9.6.1"
     "@react-spring/shared" "~9.6.1"
     "@react-spring/types" "~9.6.1"
+
+"@react-spring/web@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.7.1.tgz#a9ee730d06c686b8432cd20f41683b1acb9b6300"
+  integrity sha512-6uUE5MyKqdrJnIJqlDN/AXf3i8PjOQzUuT26nkpsYxUGOk7c+vZVPcfrExLSoKzTb9kF0i66DcqzO5fXz/Z1AA==
+  dependencies:
+    "@react-spring/animated" "~9.7.1"
+    "@react-spring/core" "~9.7.1"
+    "@react-spring/shared" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
+
+"@react-spring/zdog@~9.7.1":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/zdog/-/zdog-9.7.1.tgz#474a1366d7b71d623e0dff0e37a243b505e8c1a6"
+  integrity sha512-FeDws+7ZSoi91TUjxKnq3xmdOW6fthmqky6zSPIZq1NomeyO7+xwbxjtu15IqoWG4DJ9pouVZDijvBQXUNl0Mw==
+  dependencies:
+    "@react-spring/animated" "~9.7.1"
+    "@react-spring/core" "~9.7.1"
+    "@react-spring/shared" "~9.7.1"
+    "@react-spring/types" "~9.7.1"
 
 "@sanity/client@^3.4.1":
   version "3.4.1"
@@ -2536,6 +2622,18 @@
   dependencies:
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
+
+"@use-gesture/core@10.2.25":
+  version "10.2.25"
+  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.2.25.tgz#5f21c28c4f0bf1a1be87f2ac8bb49ad39dfd818b"
+  integrity sha512-tn01i1//mZrv+9VwyGB4KiuA6fQWvPfzwJNwcjxtMBeW0ELBukXOimvdm3hztxkpVwlz8dhQnXzkjtsxSpe9VA==
+
+"@use-gesture/react@^10.2.11":
+  version "10.2.25"
+  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.2.25.tgz#e0ca154bfe5792ef4fd8a831e983212867dd37bb"
+  integrity sha512-DCxBNxILAFPp74O5f0zhXshmf5Vur4sKJmNX+gbNvg2mdJgch6iWRmahsDE1BqeaTgwZL/gwKIbl5VsP6PTgVg==
+  dependencies:
+    "@use-gesture/core" "10.2.25"
 
 "@vercel/webpack-asset-relocator-loader@^1.7.0":
   version "1.7.3"
@@ -8280,6 +8378,27 @@ react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825:
     loose-envify "^1.1.0"
     neo-async "^2.6.1"
 
+react-spring-carousel@^2.0.19:
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/react-spring-carousel/-/react-spring-carousel-2.0.19.tgz#a110bc51f7fb036cc1c68f6378155a8490f7ddc6"
+  integrity sha512-OiSTuxjLv0whsjLWnZFkhCZXfaNFgBOZHr8EmggZqVZ5z+78zB87C0gTwyBA86Vo/Uljlvez6ELwLszj8fDa9A==
+  dependencies:
+    "@use-gesture/react" "^10.2.11"
+    rxjs "^7.5.4"
+    screenfull "^5.2.0"
+
+react-spring@^9.7.1:
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-9.7.1.tgz#8acfed700823490a4d9d4cf131c5fea12d1aaa93"
+  integrity sha512-o2+r2DNQDVEuefiz33ZF76DPd/gLq3kbdObJmllGF2IUfv2W6x+ZP0gR97QYCSR4QLbmOl1mPKUBbI+FJdys2Q==
+  dependencies:
+    "@react-spring/core" "~9.7.1"
+    "@react-spring/konva" "~9.7.1"
+    "@react-spring/native" "~9.7.1"
+    "@react-spring/three" "~9.7.1"
+    "@react-spring/web" "~9.7.1"
+    "@react-spring/zdog" "~9.7.1"
+
 react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
@@ -8595,6 +8714,13 @@ rxjs@^6.0.0, rxjs@^6.6.0, rxjs@^6.6.7:
   dependencies:
     tslib "^1.9.0"
 
+rxjs@^7.5.4:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.8.0.tgz#90a938862a82888ff4c7359811a595e14e1e09a4"
+  integrity sha512-F2+gxDshqmIub1KdvZkaEfGDwLNpPvk9Fs6LD/MyQxNgMds/WH9OdDDXOmxUZpME+iSK3rQCctkL0DYyytUqMg==
+  dependencies:
+    tslib "^2.1.0"
+
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
@@ -8662,6 +8788,11 @@ schema-utils@^3.0.0, schema-utils@^3.1.0, schema-utils@^3.1.1:
     "@types/json-schema" "^7.0.8"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+screenfull@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.2.0.tgz#6533d524d30621fc1283b9692146f3f13a93d1ba"
+  integrity sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==
 
 semver@7.0.0:
   version "7.0.0"
