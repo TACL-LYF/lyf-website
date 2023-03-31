@@ -8,6 +8,7 @@ import {
 } from "@mui/material"
 import { ExpandMore } from "@mui/icons-material"
 
+import { SanityType } from "@utils/typeUtils"
 import PortableText from "@components/PortableText"
 
 export const sanityDropdownFragment = graphql`
@@ -19,7 +20,7 @@ export const sanityDropdownFragment = graphql`
 `
 
 type DropdownProps = {
-  content: Queries.SanityDropdownFragment | null | undefined
+  content: SanityType<Queries.SanityDropdownFragment>
 }
 
 export default function Dropdown({ content }: DropdownProps) {
