@@ -35,7 +35,7 @@ export default function Dropdown({ content }: DropdownProps) {
         aria-controls={`${dropdownHeader}-content`}
         id={`${dropdownHeader}-`}
       >
-        <Typography>{dropdownHeader}</Typography>
+        <Typography variant="h6" color="gray">{dropdownHeader}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <PortableText content={_rawDropdownBody} />

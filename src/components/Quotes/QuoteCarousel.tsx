@@ -50,7 +50,7 @@ export default function QuoteCarousel({ quotes, color }: QuoteCarousel) {
 
   return (
     <Grid container spacing={1} justifyContent="center">
-      <Grid xs={false}>{carouselFragment}</Grid>
+      <Grid xs={12}>{carouselFragment}</Grid>
       <Grid xs={1}>
         <AnimatedIconButton
           boopProps={{ scale: 1.1 }}
