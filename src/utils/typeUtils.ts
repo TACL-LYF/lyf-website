@@ -1,0 +1,1 @@
+export type Sanity<T> = T | null | undefined
