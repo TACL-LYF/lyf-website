@@ -1,9 +1,11 @@
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
 import { Stack, Typography } from "@mui/material"
+import Grid from "@mui/material/Unstable_Grid2/Grid2"
 
-import { Section } from "@components/Layout"
 import getPageTitle from "@utils/getPageTitle"
+import { Section } from "@components/Layout"
+import { ImageCarousel } from "@components/Product"
 
 export const query = graphql`
   query CookbookPage {
@@ -47,9 +49,16 @@ export default function CookbookPage({
   if (!sanityCookbookPage)
     throw `No Sanity document for the culture page was found.`
 
+  const product = sanityCookbookPage.productReference
+
   return (
     <>
       <Section>
+        <Grid container>
+          <Grid xs={12} md={6}>
+            <ImageCarousel images={product?.photos} />
+          </Grid>
+        </Grid>
         <Stack></Stack>
       </Section>
     </>
