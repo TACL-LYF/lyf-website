@@ -10,9 +10,10 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material"
 
 type QuoteCarousel = {
   quotes: SanityType<readonly SanityType<Queries.SanityQuoteFragment>[]>
+  color: "primary" | "secondary" | "tertiary"
 }
 
-export default function QuoteCarousel({ quotes }: QuoteCarousel) {
+export default function QuoteCarousel({ quotes, color }: QuoteCarousel) {
   const theme = useTheme()
   const [activeIndex, setActiveIndex] = React.useState(1)
   const numQuotes = quotes?.length || 0
@@ -33,7 +34,7 @@ export default function QuoteCarousel({ quotes }: QuoteCarousel) {
             <Quote
               content={quote}
               isSelected={index == activeIndex}
-              color="primary"
+              color={color}
             />
           ),
         }))
