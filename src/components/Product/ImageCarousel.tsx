@@ -1,11 +1,12 @@
 import React from "react"
 import Grid from "@mui/material/Unstable_Grid2/Grid2"
 
+import { SanityType } from "@utils/typeUtils"
 import { SanityImage } from "@components/Image"
 
 type ImageCarouselProps = {
   images:
-    | readonly (Queries.SanityImageAssetFragment | null | undefined)[]
+    | readonly SanityType<Queries.SanityImageAssetFragment>[]
     | null
     | undefined
 }
