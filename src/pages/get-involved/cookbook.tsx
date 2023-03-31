@@ -8,8 +8,32 @@ import getPageTitle from "@utils/getPageTitle"
 export const query = graphql`
   query CookbookPage {
     sanityCookbookPage {
-      mainHeader
-      subHeader
+      productReference {
+        name
+        subheader
+        edition
+        slug {
+          current
+        }
+        price
+        isDonation
+        paymentLinkButton {
+          ...SanityButton
+        }
+        _rawDescription
+        additionalDetails {
+          dropdownHeader
+          _rawDropdownBody
+        }
+        photos {
+          ...SanityImageAsset
+        }
+        quotes {
+          name
+          _rawContent
+          yearsAttendedCamp
+        }
+      }
     }
   }
 `
@@ -26,10 +50,7 @@ export default function CookbookPage({
   return (
     <>
       <Section>
-        <Stack>
-          <Typography variant="h3">{sanityCookbookPage?.mainHeader}</Typography>
-          <Typography variant="h6">{sanityCookbookPage?.subHeader}</Typography>
-        </Stack>
+        <Stack></Stack>
       </Section>
     </>
   )
