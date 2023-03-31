@@ -85,7 +85,7 @@ export default function CookbookPage({
 
           {/* Quotes */}
           <Grid xs={12}>
-            <QuoteCarousel quotes={product?.quotes} />
+            <QuoteCarousel quotes={product?.quotes} color="primary" />
           </Grid>
         </Grid>
       </Section>
