@@ -8,6 +8,7 @@ import { Section } from "@components/Layout"
 import { Dropdown, ImageCarousel } from "@components/Product"
 import { SanityButton } from "@components/Button"
 import PortableText from "@components/PortableText"
+import { QuoteCarousel } from "@components/Quotes"
 
 export const query = graphql`
   query CookbookPage {
@@ -32,9 +33,7 @@ export const query = graphql`
           ...SanityImageAsset
         }
         quotes {
-          name
-          _rawContent
-          yearsAttendedCamp
+          ...SanityQuote
         }
       }
     }
@@ -56,9 +55,12 @@ export default function CookbookPage({
     <>
       <Section>
         <Grid container spacing={3}>
+          {/* Images */}
           <Grid xs={12} md={6}>
             <ImageCarousel images={product?.photos} />
           </Grid>
+
+          {/* Descriptions */}
           <Grid xs={12} md={6}>
             <Stack alignItems="stretch" spacing={2}>
               {/* Headers */}
@@ -74,12 +76,16 @@ export default function CookbookPage({
               <SanityButton content={product?.paymentLinkButton} />
               <PortableText content={product?._rawDescription} />
               <Stack>
-              {product?.additionalDetails?.map((dropdown, i) => (
-                <Dropdown content={dropdown} key={`dropdown-${i}`} />
-              ))}
+                {product?.additionalDetails?.map((dropdown, i) => (
+                  <Dropdown content={dropdown} key={`dropdown-${i}`} />
+                ))}
               </Stack>
-
             </Stack>
+          </Grid>
+
+          {/* Quotes */}
+          <Grid xs={12}>
+            <QuoteCarousel quotes={product?.quotes} />
           </Grid>
         </Grid>
       </Section>

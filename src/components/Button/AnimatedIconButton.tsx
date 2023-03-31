@@ -1,16 +1,16 @@
 import React from "react"
 import { animated } from "@react-spring/web"
-import { Button, ButtonProps } from "@mui/material"
+import { IconButton, ButtonProps } from "@mui/material"
 
 import useBoop, { BoopProps } from "@hooks/useBoop"
 
-const SpringAnimatedButton = animated(Button)
+const SpringAnimatedButton = animated(IconButton)
 
 type Props = ButtonProps & {
   boopProps: BoopProps
 }
 
-export default function AnimatedButton({
+export default function AnimatedIconButton({
   boopProps,
   disabled,
   ...rest
