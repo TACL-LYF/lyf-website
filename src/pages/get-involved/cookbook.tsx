@@ -5,7 +5,9 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2"
 
 import getPageTitle from "@utils/getPageTitle"
 import { Section } from "@components/Layout"
-import { ImageCarousel } from "@components/Product"
+import { Dropdown, ImageCarousel } from "@components/Product"
+import { SanityButton } from "@components/Button"
+import PortableText from "@components/PortableText"
 
 export const query = graphql`
   query CookbookPage {
@@ -24,8 +26,7 @@ export const query = graphql`
         }
         _rawDescription
         additionalDetails {
-          dropdownHeader
-          _rawDropdownBody
+          ...SanityDropdown
         }
         photos {
           ...SanityImageAsset
@@ -54,12 +55,33 @@ export default function CookbookPage({
   return (
     <>
       <Section>
-        <Grid container>
+        <Grid container spacing={3}>
           <Grid xs={12} md={6}>
             <ImageCarousel images={product?.photos} />
           </Grid>
+          <Grid xs={12} md={6}>
+            <Stack alignItems="stretch" spacing={2}>
+              {/* Headers */}
+              <Stack>
+                <Typography variant="h4">{product?.name}</Typography>
+                <Typography variant="h5">{product?.subheader}</Typography>
+                <Typography variant="h6">{product?.edition}</Typography>
+              </Stack>
+              {/* Everything Else */}
+              <Typography variant="h6">
+                {`$${product?.price} ${product?.isDonation && "donation"}`}
+              </Typography>
+              <SanityButton content={product?.paymentLinkButton} />
+              <PortableText content={product?._rawDescription} />
+              <Stack>
+              {product?.additionalDetails?.map((dropdown, i) => (
+                <Dropdown content={dropdown} key={`dropdown-${i}`} />
+              ))}
+              </Stack>
+
+            </Stack>
+          </Grid>
         </Grid>
-        <Stack></Stack>
       </Section>
     </>
   )
