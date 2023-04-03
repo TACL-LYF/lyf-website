@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2"
 import { animated, config, useSprings, useTransition } from "@react-spring/web"
 
 import { SanityType } from "@utils/typeUtils"
-import { SanityImage } from "@components/Image"
+import { ImagesFullScreenViewer, SanityImage } from "@components/Image"
 
 type ImageCarouselProps = {
   images:
@@ -36,6 +36,9 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
     },
   })
 
+  // Set whether the full screen viewer is active.
+  const [fullScreen, setFullScreen] = React.useState(false)
+
   // For each of the smaller thumbnails, we want to show some of them and they should have
   // hover effects to indicate you can click on them.
   const [hoverIndex, setHoverIndex] = React.useState<number | null>(null)
@@ -51,37 +54,46 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
 
   return (
     // TODO: Add full-screen viewer
-    <Grid container justifyContent="center" alignItems="stretch" spacing={1}>
-      <Grid xs={12}>
-        {transitions((style, i) => (
-          <AnimatedBox style={style}>
-            <SanityImage imageAsset={images[i]} hasRoundedCorners />
-          </AnimatedBox>
-        ))}
-      </Grid>
-      {springs.map((styles, i) => (
-        <AnimatedGrid
-          xs={2}
-          key={`image-carousel-${i}`}
-          style={styles}
-          onClick={() => setIndex(i)}
-          onMouseEnter={() => setHoverIndex(i)}
-          onMouseLeave={() => setHoverIndex(null)}
-        >
-          <SanityImage imageAsset={images[i]} hasRoundedCorners />
-        </AnimatedGrid>
-      ))}
-      {numRemainingImages > 0 ? (
-        <Grid xs={2}>
-          {/* TODO: Add overlay */}
-          <SanityImage
-            imageAsset={images[MAX_DISPLAYED_IMAGES]}
-            hasRoundedCorners
-          />
+    <>
+      <Grid container justifyContent="center" alignItems="stretch" spacing={1}>
+        <Grid xs={12}>
+          {transitions((style, i) => (
+            <AnimatedBox style={style}>
+              <SanityImage imageAsset={images[i]} hasRoundedCorners />
+            </AnimatedBox>
+          ))}
         </Grid>
-      ) : (
-        <></>
-      )}
-    </Grid>
+        {springs.map((styles, i) => (
+          <AnimatedGrid
+            xs={2}
+            key={`image-carousel-${i}`}
+            style={styles}
+            onClick={() => setIndex(i)}
+            onMouseEnter={() => setHoverIndex(i)}
+            onMouseLeave={() => setHoverIndex(null)}
+          >
+            <SanityImage imageAsset={images[i]} hasRoundedCorners />
+          </AnimatedGrid>
+        ))}
+        {numRemainingImages > 0 ? (
+          <Grid xs={2}>
+            {/* TODO: Add overlay */}
+            <SanityImage
+              imageAsset={images[MAX_DISPLAYED_IMAGES]}
+              hasRoundedCorners
+            />
+          </Grid>
+        ) : (
+          <></>
+        )}
+      </Grid>
+
+      {/* <ImagesFullScreenViewer
+        open={fullScreen}
+        setOpen={setFullScreen}
+        initialIndex={index}
+        images={images}
+      /> */}
+    </>
   )
 }
