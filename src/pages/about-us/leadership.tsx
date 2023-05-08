@@ -15,7 +15,11 @@ export const query = graphql`
         committees {
           name
           members {
-            ...SanityLeadershipPerson
+            name
+            position
+            propic {
+              ...SanityImageAsset
+            }
           }
         }
       }
@@ -29,14 +33,8 @@ export default function LeadershipPage({
   data,
 }: PageProps<Queries.LeadershipPageQuery>) {
   const { sanityLeadershipPage } = data
-  if (!sanityLeadershipPage)
+  if (!sanityLeadershipPage || !sanityLeadershipPage?.leadership)
     throw `No Sanity document for the leadership page was found.`
-
-  const leadership = sanityLeadershipPage.leadership
-  if (!leadership) throw `No leadership linked to this page.`
-
-  const theme = useTheme()
-  const alternatingColors = [theme.palette.primary.main, theme.palette.secondary.main, theme.palette.tertiary.main]
 
   return (
     <>
@@ -54,17 +52,6 @@ export default function LeadershipPage({
 
       {/* Leadership */}
       <Section>
-        <Stack spacing={4}>
-          {leadership.committees?.map((committee, index) => (
-            <Committee
-              name={committee?.name}
-              // @ts-ignore Trying to make this a valid type is a pain.
-              members={committee?.members}
-              backgroundColor={alternatingColors[index % 3]}
-              key={committee?.name}
-            />
-          ))}
-        </Stack>
       </Section>
     </>
   )
