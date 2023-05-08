@@ -1,6 +1,6 @@
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
-import { Stack, Typography } from "@mui/material"
+import { Stack, Typography, useTheme } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2/Grid2"
 
 import getPageTitle from "@utils/getPageTitle"
@@ -37,6 +37,9 @@ export default function LeadershipPage({
   const leadership = sanityLeadershipPage.leadership
   if (!leadership) throw `No leadership linked to this page.`
 
+  const theme = useTheme()
+  const alternatingColors = [theme.palette.primary.main, theme.palette.secondary.main, theme.palette.tertiary.main]
+
   return (
     <>
       {/* Header Section */}
@@ -54,11 +57,12 @@ export default function LeadershipPage({
       {/* Leadership */}
       <Section>
         <Stack spacing={4}>
-          {leadership.committees?.map((committee) => (
+          {leadership.committees?.map((committee, index) => (
             <Committee
               name={committee?.name}
+              // @ts-ignore Trying to make this a valid type is a pain.
               members={committee?.members}
-              backgroundColor="red"
+              backgroundColor={alternatingColors[index % 3]}
               key={committee?.name}
             />
           ))}
