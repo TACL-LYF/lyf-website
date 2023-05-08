@@ -10,6 +10,18 @@ export const query = graphql`
     sanityLeadershipPage {
       mainHeader
       subHeader
+      leadership {
+        committees {
+          name
+          members {
+            name
+            position
+            propic {
+              ...SanityImageAsset
+            }
+          }
+        }
+      }
     }
   }
 `
@@ -20,20 +32,27 @@ export default function LeadershipPage({
   data,
 }: PageProps<Queries.LeadershipPageQuery>) {
   const { sanityLeadershipPage } = data
-  if (!sanityLeadershipPage)
-    throw `No Sanity document for the culture page was found.`
+  if (!sanityLeadershipPage || !sanityLeadershipPage?.leadership)
+    throw `No Sanity document for the leadership page was found.`
 
   return (
     <>
-      <Section>
-        <Stack>
-          <Typography variant="h3">
+      {/* Header Section */}
+      <Section backgroundColor="tertiary.main">
+
+        <Stack spacing={5}>
+          <Typography variant="h3" color="white" textAlign="center">
             {sanityLeadershipPage?.mainHeader}
           </Typography>
-          <Typography variant="h6">
+          <Typography variant="h6" color="white" textAlign="center">
             {sanityLeadershipPage?.subHeader}
           </Typography>
         </Stack>
+      </Section>
+
+      {/* Leadership */}
+      <Section>
+
       </Section>
     </>
   )
