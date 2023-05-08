@@ -26,6 +26,7 @@ export default function Committee({
           <LeadershipPerson person={member} backgroundColor={backgroundColor} />
         </Grid>
       ))}
+      <Grid></Grid>
     </Grid>
   )
 }

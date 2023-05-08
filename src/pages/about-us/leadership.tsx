@@ -1,9 +1,11 @@
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
-import { Stack, Typography, useTheme } from "@mui/material"
+import { Stack, Typography } from "@mui/material"
+import Grid from "@mui/material/Unstable_Grid2/Grid2"
 
 import getPageTitle from "@utils/getPageTitle"
 import { Section } from "@components/Layout"
+import { PortraitImage } from "@components/Image"
 import { Committee } from "@components/Leadership"
 
 export const query = graphql`
@@ -15,11 +17,7 @@ export const query = graphql`
         committees {
           name
           members {
-            name
-            position
-            propic {
-              ...SanityImageAsset
-            }
+            ...SanityLeadershipPerson
           }
         }
       }
@@ -33,8 +31,11 @@ export default function LeadershipPage({
   data,
 }: PageProps<Queries.LeadershipPageQuery>) {
   const { sanityLeadershipPage } = data
-  if (!sanityLeadershipPage || !sanityLeadershipPage?.leadership)
+  if (!sanityLeadershipPage)
     throw `No Sanity document for the leadership page was found.`
+
+  const leadership = sanityLeadershipPage.leadership
+  if (!leadership) throw `No leadership linked to this page.`
 
   return (
     <>
@@ -52,6 +53,16 @@ export default function LeadershipPage({
 
       {/* Leadership */}
       <Section>
+        <Stack spacing={4}>
+          {leadership.committees?.map((committee) => (
+            <Committee
+              name={committee?.name}
+              members={committee?.members}
+              backgroundColor="red"
+              key={committee?.name}
+            />
+          ))}
+        </Stack>
       </Section>
     </>
   )

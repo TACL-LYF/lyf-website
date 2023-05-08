@@ -16,11 +16,11 @@ const config: GatsbyConfig = {
   plugins: [
     {
       resolve: "gatsby-source-sanity",
-      options: sanityConfig,
-    },
-    {
-      resolve: "gatsby-plugin-sanity-image",
-      options: sanityConfig,
+      // Be sure to update in gatsby-node.ts too
+      options: {
+        projectId: "68eu2oev",
+        dataset: "production"
+      },
     },
     "gatsby-plugin-image",
     {
