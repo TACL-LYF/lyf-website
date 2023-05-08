@@ -20,7 +20,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.12",
-    "@portabletext/react": "^2.0.0",
+    "@portabletext/react": "^3.0.0",
     "@react-spring/web": "^9.5.5",
     "date-fns": "^2.29.3",
     "gatsby": "^5.0.0",
@@ -36,9 +36,9 @@
     "react-spring-carousel": "^2.0.19"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
+    "@types/node": "20.1.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "typescript": "^4.8.3"
+    "typescript": "^5.0.4"
   }
 }
