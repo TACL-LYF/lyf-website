@@ -10,6 +10,12 @@ export const sanityImageFragment = graphql`
       altText
       gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
     }
+    hotspot {
+      x
+      y
+      height
+      width
+    }
   }
 `
 
