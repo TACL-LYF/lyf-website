@@ -1108,7 +1108,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.1.tgz#c1ddb040429c6d21d38cc945fe75c818cfb68e17"
   integrity sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==
 
-"@emotion/react@^11.10.5":
+"@emotion/react@^11.10.0", "@emotion/react@^11.10.5":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.11.0.tgz#408196b7ef8729d8ad08fc061b03b046d1460e02"
   integrity sha512-ZSK3ZJsNkwfjT3JpDAWJZlrGD81Z3ytNDsxw1LKq1o+xkmO5pnWfr6gmCC8gHEFf3nSSX/09YrG67jybNPxSUw==
@@ -2172,7 +2172,7 @@
     event-source-polyfill "1.0.31"
     eventsource "2.0.2"
 
-"@sanity/image-url@^1.0.2":
+"@sanity/image-url@^1.0.1", "@sanity/image-url@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@sanity/image-url/-/image-url-1.0.2.tgz#1ff7259e9bad6bfca4169f21c53a4123f6ac78c3"
   integrity sha512-C4+jb2ny3ZbMgEkLd7Z3C75DsxcTEoE+axXQJsQ75ou0AKWGdVsP351hqK6mJUUxn5HCSlu3vznoh7Yljye4cQ==
@@ -5533,6 +5533,14 @@ gatsby-plugin-page-creator@^5.9.0:
     gatsby-telemetry "^4.9.0"
     globby "^11.1.0"
     lodash "^4.17.21"
+
+gatsby-plugin-sanity-image@^0.13.4:
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sanity-image/-/gatsby-plugin-sanity-image-0.13.4.tgz#f573dbbc64547e9657b880004ba3d19e63add6fd"
+  integrity sha512-47y+ud4OqtU7asw8jRWlUMthwJOOvbns8eSYgsc/dUiMjAuK+CnT/YVJN2JZJiuspSI8sOgYPQAT81wRzkLnCA==
+  dependencies:
+    "@emotion/react" "^11.10.0"
+    "@sanity/image-url" "^1.0.1"
 
 gatsby-plugin-sharp@^5.0.0:
   version "5.9.0"

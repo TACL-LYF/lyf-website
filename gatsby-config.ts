@@ -1,5 +1,10 @@
 import type { GatsbyConfig } from "gatsby"
 
+const sanityConfig = {
+  projectId: "68eu2oev",
+  dataset: "production",
+}
+
 const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`,
@@ -11,11 +16,11 @@ const config: GatsbyConfig = {
   plugins: [
     {
       resolve: "gatsby-source-sanity",
-      // Be sure to update in gatsby-node.ts too
-      options: {
-        projectId: "68eu2oev",
-        dataset: "production"
-      },
+      options: sanityConfig,
+    },
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: sanityConfig,
     },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
@@ -24,10 +29,10 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Nunito"]
-        }
-      }
-    }
+          families: ["Nunito"],
+        },
+      },
+    },
   ],
 }
 
