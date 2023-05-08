@@ -62,6 +62,7 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({
     SanityImage: {
       gatsbyImageData: getGatsbyImageFieldConfig(
         (image: ImageNode, args) =>
+          // @ts-ignore Ignore args
           getGatsbyImageData(image, args, {
             // Be sure to update in gatsby-config.ts too
             projectId: "68eu2oev",
@@ -71,14 +72,17 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({
         {
           placeholder: {
             type: "SanityGatsbyImagePlaceholder",
-            defaultValue: `BLURRED`,
+            defaultValue: "blurred",
             // Also copy the description from this line if you want that comment in your schema
             // https://github.com/sanity-io/gatsby-source-sanity/blob/bbe8565c0c639797e25b742df4e1dc120c465108/src/images/extendImageNode.ts#L53
-            description: "...",
+            description: `Format of generated placeholder image, displayed while the main image loads.
+            BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+            DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+            NONE: no placeholder.`,
           },
           fit: {
             type: "SanityImageFit",
-            defaultValue: "FILLMAX",
+            defaultValue: "fillmax",
           },
         }
       ),

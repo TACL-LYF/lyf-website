@@ -11,6 +11,7 @@ const config: GatsbyConfig = {
   plugins: [
     {
       resolve: "gatsby-source-sanity",
+      // Be sure to update in gatsby-node.ts too
       options: {
         projectId: "68eu2oev",
         dataset: "production"
