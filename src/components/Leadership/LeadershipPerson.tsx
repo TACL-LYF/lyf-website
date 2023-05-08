@@ -1,11 +1,10 @@
 import React from "react"
 
 import { graphql } from "gatsby"
-import { Box, Stack, Typography } from "@mui/material"
+import { Stack, Typography } from "@mui/material"
 import SanityGatsbyImage from "gatsby-plugin-sanity-image"
 
 import { SanityType } from "@utils/typeUtils"
-import { PortraitImage } from "@components/Image"
 
 export const sanityLeadershipPersonFragment = graphql`
   fragment SanityLeadershipPerson on SanityPerson {
@@ -34,6 +33,7 @@ export default function LeadershipPerson({
           {...propic}
           width={200}
           height={200}
+          // @ts-ignore Not sure why style isn't the right type here.
           style={{
             borderRadius: "50%",
             boxShadow: `8px 12px 0px ${backgroundColor}`
