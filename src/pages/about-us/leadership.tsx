@@ -1,9 +1,11 @@
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
 import { Stack, Typography, useTheme } from "@mui/material"
+import Grid from "@mui/material/Unstable_Grid2/Grid2"
 
 import getPageTitle from "@utils/getPageTitle"
 import { Section } from "@components/Layout"
+import { PortraitImage } from "@components/Image"
 import { Committee } from "@components/Leadership"
 
 export const query = graphql`
