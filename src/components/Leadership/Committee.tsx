@@ -22,7 +22,7 @@ export default function Committee({
         <Typography variant="h4">{name}</Typography>
       </Grid>
       {members?.map((member) => (
-        <Grid xs={4} md={3} lg={2} key={member?.name}>
+        <Grid xs={6} sm={4} md={3} lg={2} key={member?.name}>
           <LeadershipPerson person={member} backgroundColor={backgroundColor} />
         </Grid>
       ))}
