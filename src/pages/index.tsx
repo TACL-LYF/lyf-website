@@ -10,6 +10,7 @@ import { PhotoGrid, Goals, Statistics } from "@components/IndexPage"
 import PortableText from "@components/PortableText"
 import { LinkWithIcon } from "@components/Link"
 import { Section } from "@components/Layout"
+import { QuoteCarousel } from "@components/Quotes"
 import { VennDiagram } from "@components/WholePersonLeadership"
 import getPageTitle from "@utils/getPageTitle"
 
@@ -27,11 +28,15 @@ export const query = graphql`
       aboutHeader
       _rawAboutBody
       _rawCampDescription
+      campVideo
       goals
       stats {
         number
         decorator
         caption
+      }
+      quotes {
+        ...SanityQuote
       }
       ctaHeader
       _rawCtaBody
@@ -270,8 +275,10 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
         </Grid>
       </Section>
 
-      {/* Quotes TODO */}
-      {/* <Section></Section> */}
+      {/* Quotes */}
+      <Section>
+        <QuoteCarousel quotes={sanityHomePage.quotes} color="tertiary" />
+      </Section>
 
       {/* CTAs */}
       <Grid container alignItems="stretch">
