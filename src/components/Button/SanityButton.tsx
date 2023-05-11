@@ -13,7 +13,7 @@ export const sanityButtonFragment = graphql`
   }
 `
 
-type SanityButtonProps = Omit<ButtonProps, "href" | "variant" | "ref"> & {
+type SanityButtonProps = Omit<ButtonProps, "href" | "variant" | "ref" | "content"> & {
   content: Queries.SanityButtonFragment | null | undefined
   isAnimated?: boolean
   boopProps?: BoopProps
