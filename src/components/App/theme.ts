@@ -3,7 +3,8 @@ import { createTheme, PaletteColorOptions, responsiveFontSizes } from "@mui/mate
 const TEAL: PaletteColorOptions = {
   main: '#29A19D',
   light: '#A2E8E5',
-  dark: '#046A67'
+  dark: '#046A67',
+  contrastText: '#FFFFFF',
 }
 
 const SAFFRON_YELLOW: PaletteColorOptions = {
@@ -16,6 +17,7 @@ const PINK: PaletteColorOptions = {
   main: '#E95984',
   light: '#FFC3DA',
   dark: '#DA0758',
+  contrastText: '#FFFFFF',
 }
 
 const bodyFontFamily = {
