@@ -18,11 +18,14 @@ const Underline = styled("span")({
   textDecoration: "underline",
 })
 
-type Props = StackProps & {
-  content: any | null
+const HEADER_SIZES = ["h1", "h2", "h3", "h4", "h5", "h6", "normal"] as const
+
+type Props = Omit<StackProps, "content"> & {
+  content: any | null | undefined | Record<string, unknown>
+  minHeaderSize?: (typeof HEADER_SIZES)[number]
 }
 
-const components: PortableTextComponents = {
+const portableTextBaseComponents: PortableTextComponents = {
   block: {
     h1: ({ children }) => <Typography variant="h1">{children}</Typography>,
     h2: ({ children }) => <Typography variant="h2">{children}</Typography>,
@@ -62,7 +65,23 @@ const components: PortableTextComponents = {
   },
 }
 
-export default function PortableText({ content, ...rest }: Props) {
+export default function PortableText({
+  content,
+  minHeaderSize,
+  ...rest
+}: Props) {
+  // If we're given a minHeaderSize then for now we'll set every block to be that header size.
+  // We should eventually just filter out the minimum size and keep the higher sizes but oh well.
+  const components: PortableTextComponents = minHeaderSize
+    ? {
+        ...portableTextBaseComponents,
+        block: ({ children }) => (
+          // @ts-ignore Not sure why variant is complaining
+          <Typography variant={minHeaderSize}>{children}</Typography>
+        ),
+      }
+    : portableTextBaseComponents
+
   return (
     // Note we can use spacing here to determine how far apart each paragraph should be
     <Stack {...rest}>
