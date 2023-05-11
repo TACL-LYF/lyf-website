@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Card, CardContent, Stack, Typography, useTheme } from "@mui/material"
+import { Card, CardActions, CardContent, CardHeader, Stack, Typography, useTheme } from "@mui/material"
 import { FormatQuote } from "@mui/icons-material"
 import { useSpring, animated, useResize, config } from "@react-spring/web"
 import PortableText from "@components/PortableText"
@@ -45,12 +45,14 @@ export default function Quote({
   const { name, _rawContent, yearsAttendedCamp } = content
 
   return (
-    <AnimatedCard style={cardStyles}>
-      <CardContent>
-        <Stack justifyContent="space-evenly" spacing={2}>
-          <FormatQuote fontSize="large" />
-          <PortableText content={_rawContent} />
-          <Stack>
+    <AnimatedCard style={cardStyles} sx={{borderRadius: 4}}>
+      <CardContent sx={{height: 1, padding: 4}}>
+        <Stack justifyContent="space-between" sx={{height: 1}} spacing={1}>
+          <Stack spacing={2}>
+          <FormatQuote sx={{fontSize: "64px"}}/>
+          <PortableText content={_rawContent} minHeaderSize="h6"/>
+          </Stack>
+        <Stack sx={{paddingBottom: 2}}>
             <Typography>{name}</Typography>
             {yearsAttendedCamp && <Typography>{yearsAttendedCamp}</Typography>}
           </Stack>
