@@ -47,29 +47,6 @@ export const query = graphql`
   }
 `
 
-const wholePersonLeadership = [
-  {
-    Icon: Favorite,
-    color: "primary",
-    name: "Acceptance & Belonging",
-    description: "A lifelong community of Taiwanese American friends",
-  },
-  {
-    Icon: AutoAwesome,
-    color: "secondary",
-    name: "Identity & Development",
-    description:
-      "A safe space outside of school and family to be themselves and learn who they are",
-  },
-  {
-    Icon: RocketLaunch,
-    color: "tertiary",
-    name: "Leadership",
-    description:
-      "A steady pipeline of leadership development opportunities to meet your kid where they’re at over the years",
-  },
-]
-
 const Placeholder = () => (
   <Box
     sx={{
