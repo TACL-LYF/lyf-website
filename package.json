@@ -35,6 +35,7 @@
     "react-dom": "^18.0.0",
     "react-spring": "^9.7.1",
     "react-spring-carousel": "^2.0.19",
+    "react-use-measure": "^2.1.1",
     "react-youtube": "^10.1.0"
   },
   "devDependencies": {
