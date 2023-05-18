@@ -58,7 +58,7 @@ export default function VennDiagram() {
         fill={palette.secondary.main}
         {...firstSpring}
       ></a.ellipse>
-      <Text x={80} y={320}>
+      <Text x={65} y={320}>
         Identity & Development
       </Text>
 
