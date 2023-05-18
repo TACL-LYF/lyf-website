@@ -36,7 +36,8 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Nunito"],
+          families: ["Nunito: 200,500,700,800,900,1000"],
+          
         },
       },
     },
