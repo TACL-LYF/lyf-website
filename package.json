@@ -34,7 +34,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-spring": "^9.7.1",
-    "react-spring-carousel": "^2.0.19"
+    "react-spring-carousel": "^2.0.19",
+    "react-youtube": "^10.1.0"
   },
   "devDependencies": {
     "@types/node": "20.1.0",
