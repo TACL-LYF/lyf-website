@@ -14,14 +14,14 @@ const FooterLinks = [
   [
     {
       text: "About LYF",
-      to: "/about-us/history",
+      to: "/camp/lyf-camp",
     },
     {
-      text: "About LYF",
-      to: "/about-us/history",
+      text: "Culture",
+      to: "/about-us/culture",
     },
     {
-      text: "About LYF",
+      text: "History of LYF",
       to: "/about-us/history",
     },
   ],
@@ -45,12 +45,12 @@ const FooterLinks = [
       to: "/camp/faqs",
     },
     {
-      text: "About LYF",
-      to: "/about-us/history",
+      text: "Leadership",
+      to: "/about-us/leadership",
     },
     {
-      text: "About LYF",
-      to: "/about-us/history",
+      text: "Contact Us",
+      to: "/",
     },
   ],
 ]
