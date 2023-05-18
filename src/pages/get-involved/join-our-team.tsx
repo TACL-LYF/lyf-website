@@ -77,7 +77,6 @@ export default function JoinOurTeamPage({
                 {sanityJoinOurTeamPage?.subHeader}
               </Typography>
               <SanityButton
-                isAnimated
                 boopProps={{ scale: 1.1 }}
                 content={sanityJoinOurTeamPage.headerButton}
               ></SanityButton>
@@ -161,7 +160,6 @@ export default function JoinOurTeamPage({
             {sanityJoinOurTeamPage?.interestForm}
           </Typography>
           <SanityButton
-            isAnimated
             boopProps={{ scale: 1.1 }}
             content={sanityJoinOurTeamPage.interestFormButton}
           ></SanityButton>
