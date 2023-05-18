@@ -74,10 +74,7 @@ export default function WholePersonLeadership({}: WholePersonLeadershipProps) {
                 container
                 key={name}
                 columnSpacing={1}
-                rowSpacing={0}
-                sx={{
-                  padding: 0,
-                }}
+                rowSpacing={1}
               >
                 <Grid>
                   {/* @ts-ignore Tertiary added via module augmentation but doesn't show up here. */}
