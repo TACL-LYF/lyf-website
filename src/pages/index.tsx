@@ -13,6 +13,7 @@ import { Section } from "@components/Layout"
 import { QuoteCarousel } from "@components/Quotes"
 import { WholePersonLeadership } from "@components/WholePersonLeadership"
 import getPageTitle from "@utils/getPageTitle"
+import CampOverlayVideo from "@components/YouTubeEmbed/CampOverlayVideo"
 
 export const query = graphql`
   query IndexPage {
@@ -161,7 +162,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
             </Stack>
           </Grid>
           <Grid xs={12} md={6}>
-            <Placeholder />
+            <CampOverlayVideo url={sanityHomePage.campVideo} />
           </Grid>
         </Grid>
       </Section>
