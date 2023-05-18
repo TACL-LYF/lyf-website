@@ -79,7 +79,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           {/* Header */}
           <Grid xs={12} md={6}>
             <Typography
-              variant="h2"
+              variant="h1"
               textAlign={{
                 xs: "center",
                 md: "left",
@@ -104,6 +104,9 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
               <SanityButton
                 boopProps={{ scale: 1.1 }}
                 content={sanityHomePage.subHeaderButton}
+                sx={{
+                  padding: 2,
+                }}
               >
                 Register
               </SanityButton>
@@ -205,7 +208,6 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
                 content={sanityHomePage._rawCtaBody}
               />
               <SanityButton
-                isAnimated
                 boopProps={{ scale: 1.1 }}
                 content={sanityHomePage.ctaLink}
               />

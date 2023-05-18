@@ -15,12 +15,11 @@ export const sanityButtonFragment = graphql`
 
 type SanityButtonProps = Omit<ButtonProps, "href" | "variant" | "ref" | "content"> & {
   content: Queries.SanityButtonFragment | null | undefined
-  isAnimated?: boolean
   boopProps?: BoopProps
 }
 
 const SanityButton = React.forwardRef<HTMLButtonElement, SanityButtonProps>(
-  ({ content, isAnimated = false, boopProps, ...rest }, ref) => {
+  ({ content, boopProps, ...rest }, ref) => {
     if (!content?.text) {
       console.debug("No content found for the button")
       return <></>
@@ -34,7 +33,7 @@ const SanityButton = React.forwardRef<HTMLButtonElement, SanityButtonProps>(
       ...rest,
     }
 
-    return isAnimated && boopProps ? (
+    return boopProps ? (
       <AnimatedButton boopProps={boopProps} {...sharedProps}>
         {text}
       </AnimatedButton>
