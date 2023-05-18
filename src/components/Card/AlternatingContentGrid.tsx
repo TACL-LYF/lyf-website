@@ -30,9 +30,7 @@ export default function AlternatingContentGrid({
         const Image = (
           <SanityImage imageAsset={card?.image} style={{ width: "100%" }} />
         )
-        const ColoredBar = (
-          <Box height={1} width={12} borderRadius={2} bgcolor={color} />
-        )
+        const ColoredBar = <Box width={12} borderRadius={2} bgcolor={color} />
 
         return (
           <Grid
@@ -44,17 +42,16 @@ export default function AlternatingContentGrid({
             // justifyContent={index % 2 === 0 ? "flex-start" : "flex-end"}
           >
             {(index % 2 === 0 || !matches) && (
-              <Grid
-                xs={12}
-                md={6}
-                component={Stack}
-                direction="row"
-                spacing={1}
-                alignItems="stretch"
-                justifyContent="flex-start"
-              >
-                {ColoredBar}
-                {Image}
+              <Grid xs={12} md={6}>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  alignItems="stretch"
+                  justifyContent="flex-start"
+                >
+                  {ColoredBar}
+                  {Image}
+                </Stack>
               </Grid>
             )}
             <Grid
@@ -69,17 +66,16 @@ export default function AlternatingContentGrid({
               </Stack>
             </Grid>
             {index % 2 === 1 && matches && (
-              <Grid
-                xs={12}
-                md={6}
-                component={Stack}
-                direction="row"
-                spacing={1}
-                alignItems="stretch"
-                justifyContent="flex-end"
-              >
-                {Image}
-                {ColoredBar}
+              <Grid xs={12} md={6}>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  alignItems="stretch"
+                  justifyContent="flex-end"
+                >
+                  {Image}
+                  {ColoredBar}
+                </Stack>
               </Grid>
             )}
           </Grid>
