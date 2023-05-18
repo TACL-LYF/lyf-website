@@ -31,7 +31,6 @@ export default function YouTubeEmbed({
   ...rest
 }: YouTubeEmbedProps) {
   const youtubeId = extractYouTubeId(url)
-  console.log(youtubeId)
   return (
     <YouTube
       videoId={youtubeId}
