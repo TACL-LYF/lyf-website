@@ -12,4 +12,13 @@ declare module "@mui/material/styles" {
     gray: string,
     offwhite: string,
   }
+
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+    xxl: true;
+  }
 }

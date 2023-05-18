@@ -68,16 +68,14 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
   return (
     <Stack alignItems="stretch">
       {/* Hero Section */}
-      <Section maxWidth={false}>
+      <Section maxWidth="xxl">
         <Grid
           container
-          alignItems="center"
           justifyContent="space-between"
           flexWrap="wrap"
-          gap={2}
         >
           {/* Header */}
-          <Grid xs={12} md={6}>
+          <Grid xs={12} md={8}>
             <Typography
               variant="h1"
               textAlign={{
@@ -89,8 +87,8 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
             </Typography>
           </Grid>
           {/* SubHeader */}
-          <Grid xs={12} md={5}>
-            <Stack spacing={2} alignItems={{ xs: "center", md: "self-start" }}>
+          <Grid xs={12} md={4}>
+            <Stack spacing={2} alignItems={{ xs: "center", md: "self-start" }} sx={{paddingTop: 4}}>
               <Typography
                 variant="h4"
                 textAlign={{
@@ -104,9 +102,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
               <SanityButton
                 boopProps={{ scale: 1.1 }}
                 content={sanityHomePage.subHeaderButton}
-                sx={{
-                  padding: 2,
-                }}
+                size="large"
               >
                 Register
               </SanityButton>
