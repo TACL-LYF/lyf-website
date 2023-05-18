@@ -20,9 +20,13 @@ export const query = graphql`
       headerButton {
         ...SanityButton
       }
+      volunteerHeader
+      volunteerSubHeader
       volunteerImpact {
         ...SanityCard
       }
+      getInvolvedHeader
+      getInvolvedSubHeader
       getInvolved {
         ...SanityCard
       }
@@ -97,10 +101,10 @@ export default function JoinOurTeamPage({
           <Grid xs={12}>
             <Stack spacing={6} alignItems="center">
               <Typography variant="h3" textAlign="center">
-                Why do we volunteer?
+                {sanityJoinOurTeamPage?.volunteerHeader}
               </Typography>
               <Typography variant="h6" textAlign="center">
-                TODO: get this content from graphql query
+                {sanityJoinOurTeamPage?.volunteerSubHeader}
               </Typography>
             </Stack>
           </Grid>
@@ -123,10 +127,10 @@ export default function JoinOurTeamPage({
           <Grid xs={12}>
             <Stack spacing={6} alignItems="center">
               <Typography variant="h3" textAlign="center">
-                How can you get involved?
+                {sanityJoinOurTeamPage?.getInvolvedHeader}
               </Typography>
               <Typography variant="h6" textAlign="center">
-                TODO: get this content from graphql query
+                {sanityJoinOurTeamPage?.getInvolvedSubHeader}
               </Typography>
             </Stack>
           </Grid>
