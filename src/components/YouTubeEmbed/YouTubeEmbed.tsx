@@ -18,7 +18,7 @@ type YouTubeEmbedProps = Omit<YouTubeProps, "videoId"> & {
  * @return The YouTubeId string for the video
  */
 function extractYouTubeId(url: string): string {
-  const lastPathComponent = url.slice(url.lastIndexOf("/"))
+  const lastPathComponent = url.slice(url.lastIndexOf("/") + 1)
   return lastPathComponent.startsWith("watch?v=")
     ? lastPathComponent.slice(8) // the length corresponding to 'watch?v='
     : lastPathComponent
@@ -28,8 +28,10 @@ export default function YouTubeEmbed({
   url,
   width,
   height,
+  ...rest
 }: YouTubeEmbedProps) {
   const youtubeId = extractYouTubeId(url)
+  console.log(youtubeId)
   return (
     <YouTube
       videoId={youtubeId}
@@ -40,6 +42,7 @@ export default function YouTubeEmbed({
           autoplay: false
         }
       }}
+      {...rest}
     />
   )
 }
