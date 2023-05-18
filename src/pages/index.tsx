@@ -141,7 +141,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
 
       {/* What is LYF Camp? */}
       <Section backgroundColor="#F2F2F2">
-        <Grid container spacing={2} justifyContent="space-between">
+        <Grid container spacing={2} justifyContent="space-between" alignItems="center">
           <Grid xs={12} md={4}>
             <Stack spacing={8}>
               <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>

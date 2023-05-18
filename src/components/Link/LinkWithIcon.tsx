@@ -25,8 +25,8 @@ const LinkWithIcon = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
         onMouseEnter={trigger}
         {...rest}
       >
-        <Stack direction="row" justifyContent={justifyContent}>
-          {text}
+        <Stack direction="row" justifyContent={justifyContent} alignItems="center" spacing={1}>
+          <Typography variant="h6">{text}</Typography>
           <AnimatedIcon style={boopStyles} fontSize="small" />
         </Stack>
       </MuiLink>
