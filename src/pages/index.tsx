@@ -73,6 +73,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           container
           justifyContent="space-between"
           flexWrap="wrap"
+          spacing={2}
         >
           {/* Header */}
           <Grid xs={12} md={8}>
