@@ -2,7 +2,7 @@ import * as React from "react"
 import { Box, Stack } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import SanityImage from "@components/Image/SanityImage"
-import { animated, useSprings, config } from "@react-spring/web"
+import { animated, useSprings } from "@react-spring/web"
 
 const ColoredBar = ({ color }: { color: string }) => (
   <Box
