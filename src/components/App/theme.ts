@@ -41,7 +41,7 @@ const theme = createTheme({
     borderRadius: 4,
   },
   typography: {
-    fontFamily: '"Nunito", -apple-system, sans-serif',
+    fontFamily: '"Nunito", Arial, -apple-system, sans-serif',
     h1: {
       fontWeight: 1000,
     },
