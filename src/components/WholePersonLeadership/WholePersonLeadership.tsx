@@ -68,7 +68,7 @@ export default function WholePersonLeadership({}: WholePersonLeadershipProps) {
           >
             Built by the current TA generation for the next generation
           </Typography>
-          <Stack spacing={5}>
+          <Stack spacing={5} padding={1}>
             {wholePersonLeadership.map(({ Icon, color, name, description }) => (
               <Grid
                 container
