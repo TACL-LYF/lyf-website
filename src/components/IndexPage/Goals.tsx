@@ -23,7 +23,7 @@ export default function Goals({ goals }: GoalsProps) {
     return <></>
   }
 
-  const [ref, inView] = useInView({ once: false })
+  const [ref, inView] = useInView({ once: true })
   const [trails, __] = useTrail(
     goals.length,
     () => ({
@@ -43,11 +43,17 @@ export default function Goals({ goals }: GoalsProps) {
       ref={ref}
     >
       {goals.map((goal, index) => (
-        <Grid xs={12} sm={6} md={2} key={goal}>
-          <AnimatedStack spacing={1} style={trails[index]}>
-            {icons[index % 5]}
-            <Typography variant="h6">{goal}</Typography>
-          </AnimatedStack>
+        <Grid
+          xs={12}
+          sm={6}
+          md={2}
+          key={goal}
+          component={AnimatedStack}
+          spacing={1}
+          style={trails[index]}
+        >
+          {icons[index % 5]}
+          <Typography variant="h6">{goal}</Typography>
         </Grid>
       ))}
     </Grid>
