@@ -34,9 +34,9 @@ export default function FadeIn({
     delay: delay,
     config: springConfig,
   }), {
-    // once: !repeatEveryView,
+    once: !repeatEveryView,
     // Turn this on when developing so you're not constantly refreshing the page.
-    once: false,
+    // once: false,
   })
 
   return (
