@@ -3,6 +3,7 @@ import { Stack, Typography } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import { Favorite, AutoAwesome, RocketLaunch } from "@mui/icons-material"
 
+import { FadeIn } from "@components/Layout"
 import VennDiagram from "./VennDiagram"
 
 type WholePersonLeadershipProps = {}
@@ -57,7 +58,9 @@ export default function WholePersonLeadership({}: WholePersonLeadershipProps) {
               display: { xs: "none", md: "block" },
             }}
           >
+            <FadeIn translateX={20}>
             Development through the Whole Person Leadership Model
+            </FadeIn>
           </Typography>
           <Typography
             variant="h3"
@@ -66,7 +69,11 @@ export default function WholePersonLeadership({}: WholePersonLeadershipProps) {
               display: { xs: "block", md: "none" },
             }}
           >
+            <FadeIn translateX={-20}>
+
+            
             Built by the current TA generation for the next generation
+            </FadeIn>
           </Typography>
           <Stack spacing={5} padding={1}>
             {wholePersonLeadership.map(({ Icon, color, name, description }) => (

@@ -9,7 +9,7 @@ import { AnimatedButton, SanityButton } from "@components/Button"
 import { PhotoGrid, Goals, Statistics } from "@components/IndexPage"
 import PortableText from "@components/PortableText"
 import { LinkWithIcon } from "@components/Link"
-import { Section } from "@components/Layout"
+import { FadeIn, Section } from "@components/Layout"
 import { QuoteCarousel } from "@components/Quotes"
 import { WholePersonLeadership } from "@components/WholePersonLeadership"
 import getPageTitle from "@utils/getPageTitle"
@@ -66,37 +66,45 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
         >
           {/* Header */}
           <Grid xs={12} md={8}>
-            <Typography
-              variant="h1"
-              textAlign={{
-                xs: "center",
-                md: "left",
-              }}
-            >
-              {sanityHomePage.mainHeader}
-            </Typography>
-          </Grid>
-          {/* SubHeader */}
-          <Grid xs={12} md={4}>
-            <Stack spacing={2} alignItems={{ xs: "center", md: "self-start" }} sx={{paddingTop: 4}}>
+            <FadeIn translateX={-20}>
               <Typography
-                variant="h4"
+                variant="h1"
                 textAlign={{
                   xs: "center",
                   md: "left",
                 }}
               >
-                {sanityHomePage.subHeader}
+                {sanityHomePage.mainHeader}
               </Typography>
-
-              <SanityButton
-                boopProps={{ scale: 1.1 }}
-                content={sanityHomePage.subHeaderButton}
-                size="large"
+            </FadeIn>
+          </Grid>
+          {/* SubHeader */}
+          <Grid xs={12} md={4}>
+            <FadeIn translateX={20}>
+              <Stack
+                spacing={2}
+                alignItems={{ xs: "center", md: "self-start" }}
+                sx={{ paddingTop: 4 }}
               >
-                Register
-              </SanityButton>
-            </Stack>
+                <Typography
+                  variant="h4"
+                  textAlign={{
+                    xs: "center",
+                    md: "left",
+                  }}
+                >
+                  {sanityHomePage.subHeader}
+                </Typography>
+
+                <SanityButton
+                  boopProps={{ scale: 1.1 }}
+                  content={sanityHomePage.subHeaderButton}
+                  size="large"
+                >
+                  Register
+                </SanityButton>
+              </Stack>
+            </FadeIn>
           </Grid>
         </Grid>
       </Section>
@@ -119,6 +127,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           display: { xs: "none", md: "block" },
         }}
       >
+        <FadeIn translateY={-20}>
         <Stack spacing={4} alignItems="center">
           <Typography variant="h3" textAlign="center">
             {sanityHomePage.aboutHeader}
@@ -127,16 +136,25 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
             <PortableText content={sanityHomePage._rawAboutBody} />
           </Container>
         </Stack>
+        </FadeIn>
       </Section>
 
       {/* What is LYF Camp? */}
       <Section backgroundColor="#F2F2F2">
-        <Grid container spacing={2} justifyContent="space-between" alignItems="center">
+        <Grid
+          container
+          spacing={2}
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <Grid xs={12} lg={5}>
-            <Stack spacing={{xs: 4, lg: 8}}>
+            <Stack spacing={{ xs: 4, lg: 8 }}>
+              <FadeIn translateX={-20}>
               <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
                 What is LYF Camp?
               </Typography>
+              </FadeIn>
+
               <PortableText
                 content={sanityHomePage._rawCampDescription}
                 spacing={2}
@@ -159,9 +177,11 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       {/* Goals of LYF Camp */}
       <Section>
         <Stack spacing={5}>
+          <FadeIn translateX={-20}>
           <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
             Goals of LYF Camp
           </Typography>
+          </FadeIn>
           <Goals goals={sanityHomePage.goals} />
         </Stack>
       </Section>
