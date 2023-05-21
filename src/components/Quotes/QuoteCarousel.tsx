@@ -1,5 +1,5 @@
 import React from "react"
-import { Stack, useTheme } from "@mui/material"
+import { Stack, useMediaQuery, useTheme } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2/Grid2"
 import { useSpringCarousel } from "react-spring-carousel"
 
@@ -15,6 +15,7 @@ type QuoteCarousel = {
 
 export default function QuoteCarousel({ quotes, color }: QuoteCarousel) {
   const theme = useTheme()
+  const largeScreen = useMediaQuery(theme.breakpoints.up("md"))
   const [activeIndex, setActiveIndex] = React.useState(1)
   const numQuotes = quotes?.length || 0
 
@@ -25,8 +26,10 @@ export default function QuoteCarousel({ quotes, color }: QuoteCarousel) {
     useListenToCustomEvent,
   } = useSpringCarousel({
     gutter: Number(theme.spacing(2).replace("px", "")), // remove the px from the spacing string
-    itemsPerSlide: 3,
+    itemsPerSlide: largeScreen ? 3 : 1,
+    initialActiveItem: largeScreen ? 0 : 1,
     withLoop: true,
+    shouldResizeOnWindowResize: true,
     items: quotes
       ? quotes.map((quote, index) => ({
           id: quote?._key || `quote-${index}`,
@@ -44,13 +47,20 @@ export default function QuoteCarousel({ quotes, color }: QuoteCarousel) {
   // Update the active quote
   useListenToCustomEvent((event) => {
     if (event.eventName === "onSlideStartChange") {
-      setActiveIndex((event.nextItem.index + 1) % numQuotes)
+      setActiveIndex((event.nextItem.index + Number(largeScreen)) % numQuotes)
     }
   })
 
   return (
     <Grid container spacing={1} justifyContent="center">
-      <Grid xs={12}>{carouselFragment}</Grid>
+      <Grid
+        xs={12}
+        sx={{
+          overflow: "hidden",
+        }}
+      >
+        {carouselFragment}
+      </Grid>
       <Grid xs={1}>
         <AnimatedIconButton
           boopProps={{ scale: 1.1 }}
