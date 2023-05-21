@@ -62,9 +62,9 @@ export default function PhotoGrid({ photos }: PhotoGridProps) {
 
       <Grid xs={5} sm={3}>
         <AnimatedStack spacing={1} style={springs[2]}>
-          <SanityImage imageAsset={photos[4]} />
+          <SanityImage imageAsset={photos[3]}/>
           <ColoredBar color="tertiary" />
-          <SanityImage imageAsset={photos[3]} />
+          <SanityImage imageAsset={photos[4]} />
         </AnimatedStack>
       </Grid>
       <Grid xs={0} sm={3}>
