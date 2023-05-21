@@ -48,17 +48,6 @@ export const query = graphql`
   }
 `
 
-const Placeholder = () => (
-  <Box
-    sx={{
-      width: 1,
-      height: 1,
-      backgroundColor: "primary.main",
-      borderRadius: 5,
-    }}
-  />
-)
-
 export const Head = getPageTitle("Home")
 
 export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
