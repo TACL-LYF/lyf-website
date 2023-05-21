@@ -59,7 +59,7 @@ export default function Footer() {
   return (
     <Box
       component="footer"
-      sx={{ padding: { xs: 1, md: 6 }, backgroundColor: "black" }}
+      sx={{ padding: { xs: 3, md: 6 }, backgroundColor: "black" }}
     >
       <Grid container>
         <Grid xs={12} md={6}>
