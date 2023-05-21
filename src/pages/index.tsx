@@ -142,8 +142,8 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       {/* What is LYF Camp? */}
       <Section backgroundColor="#F2F2F2">
         <Grid container spacing={2} justifyContent="space-between" alignItems="center">
-          <Grid xs={12} md={4}>
-            <Stack spacing={8}>
+          <Grid xs={12} lg={5}>
+            <Stack spacing={{xs: 4, lg: 8}}>
               <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
                 What is LYF Camp?
               </Typography>
@@ -152,7 +152,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
                 spacing={2}
               />
               <LinkWithIcon
-                to="/"
+                to="/camp/lyf-camp"
                 text="Learn More"
                 color="inherit"
                 underline="hover"
@@ -160,7 +160,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
               />
             </Stack>
           </Grid>
-          <Grid xs={12} md={6}>
+          <Grid xs={12} lg={6}>
             <CampOverlayVideo url={sanityHomePage.campVideo} />
           </Grid>
         </Grid>
