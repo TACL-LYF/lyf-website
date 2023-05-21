@@ -43,16 +43,16 @@ const theme = createTheme({
   typography: {
     fontFamily: '"Nunito", Arial, -apple-system, sans-serif',
     h1: {
-      fontWeight: 1000,
+      fontWeight: 800,
     },
     h2: {
-      fontWeight: 1000,
+      fontWeight: 800,
     },
     h3: {
-      fontWeight: 900,
+      fontWeight: 800,
     },
     h4: {
-      fontWeight: 800,
+      fontWeight: 700,
     },
     h5: {
       fontWeight: 700,
