@@ -59,7 +59,7 @@ export default function Quote({ content, color, isSelected }: QuoteProps) {
               minHeaderSize="h6"
               sx={{
                 maxHeight: "55vh",
-                overflow: "scroll",
+                overflow: "auto",
               }}
             />
           </Stack>
