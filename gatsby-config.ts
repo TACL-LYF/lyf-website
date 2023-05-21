@@ -32,15 +32,6 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Nunito: 200,500,700,800,900,1000"],
-          
-        },
-      },
-    },
   ],
 }
 
