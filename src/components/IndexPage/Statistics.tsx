@@ -24,7 +24,7 @@ const Stat = ({number, decorator, caption}: StatProps) => {
   const value = useSpringValue(0, {
     config: config.molasses
   })
-  const [ref, inView] = useInView()
+  const [ref, inView] = useInView({once: true})
   React.useEffect(() => {
     value.start(inView ? number : 0)
   }, [inView])
