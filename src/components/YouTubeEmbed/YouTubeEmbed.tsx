@@ -1,11 +1,10 @@
 import React from "react"
 
-import YouTube, {YouTubeProps} from "react-youtube"
+import LiteYouTubeEmbed from "react-lite-youtube-embed"
+import "./YouTubeBorderRadius.css"
 
-type YouTubeEmbedProps = Omit<YouTubeProps, "videoId"> & {
+type YouTubeEmbedProps = {
   url: string
-  width: number
-  height: number
 }
 
 /**
@@ -26,23 +25,14 @@ function extractYouTubeId(url: string): string {
 
 export default function YouTubeEmbed({
   url,
-  width,
-  height,
-  ...rest
 }: YouTubeEmbedProps) {
   const youtubeId = extractYouTubeId(url)
   return (
-    <YouTube
-      videoId={youtubeId}
-      opts={{
-        width: width,
-        height: height,
-        playerVars: {
-          autoplay: false
-        }
-      }}
-      loading="lazy"
-      {...rest}
+    <LiteYouTubeEmbed
+      id={youtubeId}
+      adNetwork={false}
+      title="TACL LYF Camp Video"
+      noCookie={true}
     />
   )
 }
