@@ -40,8 +40,8 @@ export default function FadeIn({
   })
 
   return (
-    <animated.span ref={ref} style={springs}>
+    <animated.div ref={ref} style={springs}>
       {children}
-    </animated.span>
+    </animated.div>
   )
 }
