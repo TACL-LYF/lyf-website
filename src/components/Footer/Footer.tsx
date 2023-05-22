@@ -4,11 +4,8 @@ import { Instagram, Facebook } from "@mui/icons-material"
 import Grid from "@mui/material/Unstable_Grid2"
 import { Link } from "gatsby"
 
-const FooterText = ({ text }: { text: string }) => (
-  <Typography variant="h6" color="white">
-    {text}
-  </Typography>
-)
+import FooterText from "./FooterText"
+import FooterLink from "./FooterLink"
 
 const FooterLinks = [
   [
@@ -83,11 +80,7 @@ export default function Footer() {
             <Grid key={`footerLinkStack-${i}`}>
               <Stack>
                 {link.map(({ text, to }, j) => (
-                  <Link to={to} key={`${to}-${j}`} style={{
-                    textDecoration: "none"
-                  }}>
-                    <FooterText text={text} />
-                  </Link>
+                  <FooterLink to={to} key={`${to}-${j}`} text={text} />
                 ))}
               </Stack>
             </Grid>
