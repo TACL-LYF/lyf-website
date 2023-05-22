@@ -1,8 +1,7 @@
 import * as React from "react"
-import { Box, Stack, Typography } from "@mui/material"
+import { Box, Stack } from "@mui/material"
 import { Instagram, Facebook } from "@mui/icons-material"
 import Grid from "@mui/material/Unstable_Grid2"
-import { Link } from "gatsby"
 
 import FooterText from "./FooterText"
 import FooterLink from "./FooterLink"
@@ -77,12 +76,10 @@ export default function Footer() {
         </Grid>
         <Grid container xs={12} md={6} columnSpacing={6} rowSpacing={2}>
           {FooterLinks.map((link, i) => (
-            <Grid key={`footerLinkStack-${i}`}>
-              <Stack>
+            <Grid key={`footerLinkStack-${i}`} component={Stack}>
                 {link.map(({ text, to }, j) => (
                   <FooterLink to={to} key={`${to}-${j}`} text={text} />
                 ))}
-              </Stack>
             </Grid>
           ))}
         </Grid>
