@@ -8,7 +8,7 @@ export const sanityImageFragment = graphql`
     _key
     asset {
       altText
-      gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+      gatsbyImageData(fit: FILLMAX, placeholder: BLURRED, formats: [AVIF, WEBP])
     }
     hotspot {
       x
