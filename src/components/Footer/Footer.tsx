@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Box, Stack } from "@mui/material"
 import { Instagram, Facebook } from "@mui/icons-material"
+import LineIcon from "@components/Logo/LineIcon"
 import Grid from "@mui/material/Unstable_Grid2"
 
 import FooterText from "./FooterText"
@@ -67,6 +68,7 @@ export default function Footer() {
             </Stack>
             {/* Social Icons */}
             <Stack direction="row" spacing={2}>
+              <LineIcon style={{ color: "white" }} />
               <Instagram style={{ color: "white" }} />
               <Facebook style={{ color: "white" }} />
             </Stack>
@@ -77,9 +79,9 @@ export default function Footer() {
         <Grid container xs={12} md={6} columnSpacing={6} rowSpacing={2}>
           {FooterLinks.map((link, i) => (
             <Grid key={`footerLinkStack-${i}`} component={Stack}>
-                {link.map(({ text, to }, j) => (
-                  <FooterLink to={to} key={`${to}-${j}`} text={text} />
-                ))}
+              {link.map(({ text, to }, j) => (
+                <FooterLink to={to} key={`${to}-${j}`} text={text} />
+              ))}
             </Grid>
           ))}
         </Grid>
