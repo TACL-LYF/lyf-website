@@ -19,6 +19,7 @@ import { Link, navigate } from "gatsby"
 import Logo from "@components/Logo"
 import CTABanner from "./CTABanner"
 import HeaderPageLink, { Page } from "./HeaderPageLink"
+import { LinkButton } from "@components/Button"
 
 const PAGES: Page[] = [
   {
@@ -171,16 +172,18 @@ export default function Header() {
               sx={{ display: "block" }}
               color="primary"
               variant="contained"
+              href="https://lyf-registration.tacl.org/"
             >
               Register For Camp
             </Button>
-            <Button
+            <LinkButton
               sx={{ display: "block" }}
               color="primary"
               variant="outlined"
+              to="/get-involved/donate"
             >
               Donate
-            </Button>
+            </LinkButton>
           </Stack>
         </Toolbar>
       </AppBar>
