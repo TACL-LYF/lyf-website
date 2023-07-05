@@ -109,7 +109,7 @@ export default function DonatePage({
 
           {/* Donation Amounts */}
           {DONATION_AMOUNTS.map(({ amount, description }) => (
-            <Grid xs={6} md={3}>
+            <Grid xs={6} md={3} key={amount}>
               <Card
                 variant="outlined"
                 sx={{
