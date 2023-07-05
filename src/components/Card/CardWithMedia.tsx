@@ -63,18 +63,23 @@ export default function CardWithMedia({
         titleTypographyProps={{
           variant: "h4",
         }}
+        sx={{
+          padding: 3,
+        }}
         subheader={subHeader}
       />
 
       <CardContent sx={{
         paddingTop: 1,
         paddingBottom: 1,
+        paddingLeft: 3,
+        paddingRight: 3,
       }}>
         <PortableText
           content={content}
         />
       </CardContent>
-      <CardActions sx={{ padding: 2 }}>
+      <CardActions sx={{ padding: 3 }}>
         <SanityButton content={button} />
       </CardActions>
     </Card>
