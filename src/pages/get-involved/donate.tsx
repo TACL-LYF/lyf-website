@@ -1,6 +1,6 @@
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
-import { Stack, Typography } from "@mui/material"
+import { Card, CardContent, CardHeader, Stack, Typography } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 
 import { Section } from "@components/Layout"
@@ -29,6 +29,29 @@ export const query = graphql`
 
 export const Head = getPageTitle("Donate")
 
+// This should eventually be in the Sanity CMS as well.
+const DONATION_AMOUNTS = [
+  {
+    amount: 500,
+    description:
+      "Cover the cost for one counselor to staff camp and lead campers",
+  },
+  {
+    amount: 1000,
+    description:
+      "Sponsor one child who is qualified for financial aid to attend camp",
+  },
+  {
+    amount: 10000,
+    description:
+      "Allow us to securely sign larger campsites to accommodate more campers ",
+  },
+  {
+    amount: "Other",
+    description: "Custom amount - any amount is greatly appreciated",
+  },
+]
+
 export default function DonatePage({
   data,
 }: PageProps<Queries.DonatePageQuery>) {
@@ -52,7 +75,7 @@ export default function DonatePage({
           </Grid>
           <Grid xs={12} md={6}>
             <Stack
-              spacing={{ xs: 2, md: 6 }}
+              spacing={{ xs: 2, md: 5 }}
               alignItems={{ xs: "center", md: "flex-start" }}
               sx={{ padding: 2 }}
             >
@@ -72,7 +95,7 @@ export default function DonatePage({
       </Section>
       {/* Donation amount section */}
       <Section backgroundColor="tertiary.dark">
-        <Grid container alignItems="stretch" rowSpacing={4}>
+        <Grid container alignItems="stretch" rowSpacing={4} columnSpacing={2}>
           <Grid xs={12}>
             <Typography variant="h4" color="white">
               {sanityDonatePage?.donationAmtHeader}
@@ -83,6 +106,33 @@ export default function DonatePage({
               {sanityDonatePage?.donationAmtSubHeader}
             </Typography>
           </Grid>
+
+          {/* Donation Amounts */}
+          {DONATION_AMOUNTS.map(({ amount, description }) => (
+            <Grid xs={6} md={3}>
+              <Card
+                variant="outlined"
+                sx={{
+                  borderColor: "white",
+                  borderRadius: 4,
+                  backgroundColor: "tertiary.dark",
+                  padding: 2,
+                  height: 1,
+                }}
+              >
+                <CardContent component={Stack} spacing={1}>
+                  <Typography
+                    variant="h4"
+                    color="white"
+                  >{`$${amount.toLocaleString()}`}</Typography>
+                  <Typography variant="body1" color="white">
+                    {description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+
           <Grid xs={12}>
             <SanityButton
               boopProps={{ scale: 1.1 }}
@@ -90,9 +140,7 @@ export default function DonatePage({
             />
           </Grid>
 
-          {/* Donation Amounts */}
-
-          <Grid xs={6}>
+          <Grid xs={12} md={6}>
             <PortableText
               content={sanityDonatePage?._rawDonationAmtBody}
               color="white"
