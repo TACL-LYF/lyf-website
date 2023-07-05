@@ -7,6 +7,7 @@ import { Section } from "@components/Layout"
 import getPageTitle from "@utils/getPageTitle"
 import { SanityButton } from "@components/Button"
 import SanityImage from "@components/Image/SanityImage"
+import PortableText from "@components/PortableText/PortableText"
 
 export const query = graphql`
   query DonatePage {
@@ -21,6 +22,7 @@ export const query = graphql`
       }
       donationAmtHeader
       donationAmtSubHeader
+      _rawDonationAmtBody
     }
   }
 `
@@ -38,60 +40,64 @@ export default function DonatePage({
     <>
       {/* Header */}
       <Section backgroundColor="secondary.light">
-        <Grid container justifyContent="space-between">
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="stretch"
+          spacing={4}
+        >
           {/* Header text + button */}
-          <Grid
-            md={6}
-            sx={{ display: { xs: "none", md: "flex" } }}
-            justifyContent="center"
-            alignItems="center"
-          >
-            <SanityImage
-              imageAsset={sanityDonatePage.headerImage}
-            ></SanityImage>
+          <Grid xs={12} md={6} justifyContent="center" alignItems="center">
+            <SanityImage imageAsset={sanityDonatePage.headerImage} />
           </Grid>
           <Grid xs={12} md={6}>
             <Stack
-              spacing={6}
-              alignItems={{ xs: "center", md: "self-start" }}
-              padding={{ xs: 2, lg: 12 }}
+              spacing={{ xs: 2, md: 6 }}
+              alignItems={{ xs: "center", md: "flex-start" }}
+              sx={{ padding: 2 }}
             >
-              <Typography
-                variant="h3"
-                color="black"
-                textAlign={{ xs: "center", md: "left" }}
-              >
+              <Typography variant="h3" color="black" textAlign="left">
                 {sanityDonatePage?.mainHeader}
               </Typography>
-              <Typography
-                variant="h6"
-                color="black"
-                textAlign={{ xs: "center", md: "left" }}
-              >
+              <Typography variant="body1" textAlign="left">
                 {sanityDonatePage?.subHeader}
               </Typography>
               <SanityButton
                 boopProps={{ scale: 1.1 }}
                 content={sanityDonatePage.headerButton}
-              ></SanityButton>
+              />
             </Stack>
           </Grid>
         </Grid>
       </Section>
       {/* Donation amount section */}
       <Section backgroundColor="tertiary.dark">
-        <Grid container alignItems="stretch" spacing={4}>
+        <Grid container alignItems="stretch" rowSpacing={4}>
           <Grid xs={12}>
-            <Stack spacing={6} alignItems="left">
-              <Typography variant="h3" color="white">
-                {sanityDonatePage?.donationAmtHeader}
-              </Typography>
-              <Typography variant="h6" color="white">
-                {sanityDonatePage?.donationAmtSubHeader}
-              </Typography>
-            </Stack>
+            <Typography variant="h4" color="white">
+              {sanityDonatePage?.donationAmtHeader}
+            </Typography>
           </Grid>
-          {/*donation amounts*/}
+          <Grid xs={12}>
+            <Typography variant="h6" color="white">
+              {sanityDonatePage?.donationAmtSubHeader}
+            </Typography>
+          </Grid>
+          <Grid xs={12}>
+            <SanityButton
+              boopProps={{ scale: 1.1 }}
+              content={sanityDonatePage.headerButton}
+            />
+          </Grid>
+
+          {/* Donation Amounts */}
+
+          <Grid xs={6}>
+            <PortableText
+              content={sanityDonatePage?._rawDonationAmtBody}
+              color="white"
+            />
+          </Grid>
         </Grid>
       </Section>
     </>
