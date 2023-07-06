@@ -31,7 +31,7 @@ const PAGES: Page[] = [
       },
       {
         to: "/about-us/culture",
-        text: "Cultural Stance",
+        text: "Approach to Culture",
       },
       {
         to: "/about-us/history",
