@@ -63,6 +63,10 @@ const PAGES: Page[] = [
         to: "/get-involved/donate",
         text: "Donate",
       },
+      {
+        to: "/get-involved/cookbook",
+        text: "Cookbook",
+      },
     ],
   },
 ]
