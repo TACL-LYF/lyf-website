@@ -73,7 +73,29 @@ export default function CookbookPage({
               <Typography variant="h6">
                 {`$${product?.price} ${product?.isDonation && "donation"}`}
               </Typography>
-              <SanityButton content={product?.paymentLinkButton} />
+
+              {/* Normally we would use the Payment Link button defined in the Sanity schema but PayPal is being annoying with links so we'll just embed their code instead */}
+              {/* <SanityButton content={product?.paymentLinkButton} /> */}
+              <form
+                action="https://www.paypal.com/cgi-bin/webscr"
+                method="post"
+                target="_top"
+              >
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input
+                  type="hidden"
+                  name="hosted_button_id"
+                  value="W3RPET99WTRW2"
+                />
+                <input type="hidden" name="currency_code" value="USD" />
+                <input
+                  type="image"
+                  src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif"
+                  name="submit"
+                  title="PayPal - The safer, easier way to pay online!"
+                  alt="Buy Now"
+                />
+              </form>
               <PortableText content={product?._rawDescription} />
               <Stack>
                 {product?.additionalDetails?.map((dropdown, i) => (
