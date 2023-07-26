@@ -52,13 +52,15 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
   )
   const numRemainingImages = Math.max(0, images.length - MAX_DISPLAYED_IMAGES)
 
+  const openFullscreen = () => setFullScreen(true)
+
   return (
     // TODO: Add full-screen viewer
     <>
       <Grid container justifyContent="center" alignItems="stretch" spacing={1}>
         <Grid xs={12}>
           {transitions((style, i) => (
-            <AnimatedBox style={style}>
+            <AnimatedBox style={style} onClick={openFullscreen}>
               <SanityImage imageAsset={images[i]} hasRoundedCorners />
             </AnimatedBox>
           ))}
@@ -88,12 +90,12 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
         )}
       </Grid>
 
-      {/* <ImagesFullScreenViewer
+      <ImagesFullScreenViewer
         open={fullScreen}
         setOpen={setFullScreen}
         initialIndex={index}
         images={images}
-      /> */}
+      />
     </>
   )
 }
