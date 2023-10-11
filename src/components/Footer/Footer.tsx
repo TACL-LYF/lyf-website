@@ -47,7 +47,7 @@ const FooterLinks = [
     },
     {
       text: "Contact Us",
-      to: "/",
+      to: "mailto:lyf@tacl.org",
     },
   ],
 ]
