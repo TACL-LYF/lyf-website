@@ -120,6 +120,7 @@ export default function FAQsPage({ data }: PageProps<Queries.FAQsPageQuery>) {
         </Stack>
       </Section>
       <Section>
+        {/* comment */}
         <Stack spacing={2} alignItems="flex-start">
           <Typography variant="h4">
             Have other questions? Contact us for more information!
