@@ -22,6 +22,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-sanity-image",
       options: sanityConfig,
     },
+    "gatsby-plugin-netlify",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-sharp",

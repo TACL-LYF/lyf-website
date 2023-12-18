@@ -33,7 +33,7 @@ const FooterLinks = [
     },
     {
       text: "Cookbook",
-      to: "/get-involved/cookbook",
+      to: "/cookbook",
     },
   ],
   [

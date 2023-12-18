@@ -49,3 +49,14 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     createTypes(typeDefs)
   }
+
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+}) => {
+  const { createRedirect } = actions
+  createRedirect({
+    fromPath: "/get-involved/cookbook",
+    toPath: "/cookbook",
+  })
+}
