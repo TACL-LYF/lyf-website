@@ -95,7 +95,7 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
                 >
                   {sanityHomePage.subHeader}
                 </Typography>
-
+                {/*  */}
                 <SanityButton
                   boopProps={{ scale: 1.1 }}
                   content={sanityHomePage.subHeaderButton}
@@ -128,14 +128,14 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
         }}
       >
         <FadeIn translateY={-20}>
-        <Stack spacing={4} alignItems="center">
-          <Typography variant="h3" textAlign="center">
-            {sanityHomePage.aboutHeader}
-          </Typography>
-          <Container maxWidth="sm" sx={{ textAlign: "center" }}>
-            <PortableText content={sanityHomePage._rawAboutBody} />
-          </Container>
-        </Stack>
+          <Stack spacing={4} alignItems="center">
+            <Typography variant="h3" textAlign="center">
+              {sanityHomePage.aboutHeader}
+            </Typography>
+            <Container maxWidth="sm" sx={{ textAlign: "center" }}>
+              <PortableText content={sanityHomePage._rawAboutBody} />
+            </Container>
+          </Stack>
         </FadeIn>
       </Section>
 
@@ -150,9 +150,9 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           <Grid xs={12} lg={5}>
             <Stack spacing={{ xs: 4, lg: 8 }}>
               <FadeIn translateX={-20}>
-              <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
-                What is LYF Camp?
-              </Typography>
+                <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
+                  What is LYF Camp?
+                </Typography>
               </FadeIn>
 
               <PortableText
@@ -178,9 +178,9 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
       <Section>
         <Stack spacing={5}>
           <FadeIn translateX={-20}>
-          <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
-            Goals of LYF Camp
-          </Typography>
+            <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
+              Goals of LYF Camp
+            </Typography>
           </FadeIn>
           <Goals goals={sanityHomePage.goals} />
         </Stack>
