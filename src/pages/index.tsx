@@ -95,7 +95,6 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
                 >
                   {sanityHomePage.subHeader}
                 </Typography>
-                {/*  */}
                 <SanityButton
                   boopProps={{ scale: 1.1 }}
                   content={sanityHomePage.subHeaderButton}
@@ -150,7 +149,10 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
           <Grid xs={12} lg={5}>
             <Stack spacing={{ xs: 4, lg: 8 }}>
               <FadeIn translateX={-20}>
-                <Typography variant="h3" textAlign={{ xs: "center", md: "left" }}>
+                <Typography
+                  variant="h3"
+                  textAlign={{ xs: "center", md: "left" }}
+                >
                   What is LYF Camp?
                 </Typography>
               </FadeIn>
@@ -239,7 +241,11 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
               <Typography variant="h4" textAlign="center">
                 Want to Get Involved?
               </Typography>
-              <AnimatedButton boopProps={{ scale: 1.1 }} variant="contained" href="https://www.facebook.com/groups/291534277601982">
+              <AnimatedButton
+                boopProps={{ scale: 1.1 }}
+                variant="contained"
+                href="https://www.facebook.com/groups/291534277601982"
+              >
                 Join Our Staff!
               </AnimatedButton>
             </Stack>

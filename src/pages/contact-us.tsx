@@ -159,7 +159,7 @@ export default function ContactUsPage({ data }: PageProps) {
                   name="name"
                   onChange={handleChange}
                   required
-                  // onChange={(event) => setname(event.target.value)}
+
                 />
               </Grid>
 
