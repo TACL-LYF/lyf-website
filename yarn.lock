@@ -4122,7 +4122,7 @@ debounce@^1.2.1:
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.1.tgz#38881d8f4166a5c5848020c11827b834bcb3e0a5"
   integrity sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==
 
-debug@2, debug@2.6.9, debug@^2.6.0, debug@^2.6.8:
+debug@2, debug@2.6.9, debug@^2.1.3, debug@^2.6.0, debug@^2.6.8:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
@@ -4417,6 +4417,11 @@ electron-to-chromium@^1.4.284:
   version "1.4.402"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.402.tgz#9aa7bbb63081513127870af6d22f829344c5ba57"
   integrity sha512-gWYvJSkohOiBE6ecVYXkrDgNaUjo47QEKK0kQzmWyhkH+yoYiG44bwuicTGNSIQRG3WDMsWVZJLRnJnLNkbWvA==
+
+email-validator@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-2.0.4.tgz#b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed"
+  integrity sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -5538,6 +5543,14 @@ gatsby-plugin-image@^3.3.2:
     gatsby-plugin-utils "^4.10.0"
     objectFitPolyfill "^2.3.5"
     prop-types "^15.8.1"
+
+gatsby-plugin-mailchimp@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mailchimp/-/gatsby-plugin-mailchimp-5.2.2.tgz#bed94cb70b9d91267329a5e6a0220e821d8ff6e8"
+  integrity sha512-O9JizVPJAe5YT1QAHZNRh1xUVdPnfayfIRhsBULiK2629TQRvEzzQxTDbt/WZU02cVm8415Fx2CneaxYKLt0ag==
+  dependencies:
+    email-validator "^2.0.4"
+    jsonp "^0.2.1"
 
 gatsby-plugin-netlify@^5.1.1:
   version "5.1.1"
@@ -6858,6 +6871,13 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
+
+jsonp@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/jsonp/-/jsonp-0.2.1.tgz#a65b4fa0f10bda719a05441ea7b94c55f3e15bae"
+  integrity sha512-pfog5gdDxPdV4eP7Kg87M8/bHgshlZ5pybl+yKxAnCZ5O7lCIn7Ixydj03wOlnDQesky2BPyA91SQ+5Y/mNwzw==
+  dependencies:
+    debug "^2.1.3"
 
 "jsx-ast-utils@^2.4.1 || ^3.0.0", jsx-ast-utils@^3.3.3:
   version "3.3.3"
