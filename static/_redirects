@@ -1,5 +1,0 @@
-# Redirects from what the browser requests to what we serve
-# I added "/l/" in front of the link name to denote that it's an external link and not a page on our site
-# This may be a hassle to type out, but I believe it's a good separation of pages
-
-/2024FamilySurvey            https://docs.google.com/forms/d/e/1FAIpQLSdXEbJcOK8V4jv6aBa9HtUFQXbS3tCbOA_tfJmJ4wQRW4Ft-g/viewform?usp=sf_link
