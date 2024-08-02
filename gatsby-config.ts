@@ -32,6 +32,14 @@ const config: GatsbyConfig = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://tacl.us7.list-manage.com/subscribe/post?u=723f6baf2c99017f0ff638067&amp;id=2bd94e4a2c&amp;f_id=00c2f8e4f0",
+        timeout: 5000,
+      },
+    },
     "gatsby-transformer-sharp",
   ],
 }
