@@ -6,7 +6,7 @@ import useBoop, { BoopProps } from "@hooks/useBoop"
 
 const SpringAnimatedButton = animated(Button)
 
-type Props = ButtonProps & {
+export type AnimatedButtonProps = ButtonProps & {
   boopProps: BoopProps
 }
 
@@ -14,7 +14,7 @@ export default function AnimatedButton({
   boopProps,
   disabled,
   ...rest
-}: Props) {
+}: AnimatedButtonProps) {
   const [boopStyles, trigger] = useBoop({ ...boopProps, disabled })
 
   return (
