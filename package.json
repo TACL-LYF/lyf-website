@@ -13,7 +13,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean-dev": "gatsby clean && gatsby develop"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
