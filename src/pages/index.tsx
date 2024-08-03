@@ -14,6 +14,7 @@ import { QuoteCarousel } from "@components/Quotes"
 import { WholePersonLeadership } from "@components/WholePersonLeadership"
 import getPageTitle from "@utils/getPageTitle"
 import CampOverlayVideo from "@components/YouTubeEmbed/CampOverlayVideo"
+import MailchimpSignupForm from "@components/Mailchimp/MailchimpSignupForm"
 
 export const query = graphql`
   query IndexPage {
@@ -198,9 +199,12 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery>) {
         <WholePersonLeadership />
       </Section>
 
-      {/* Quotes */}
+      {/* Quotes and Mailchimp */}
       <Section>
         <QuoteCarousel quotes={sanityHomePage.quotes} color="tertiary" />
+        <MailchimpSignupForm sx={{
+          paddingTop: 4
+        }}/>
       </Section>
 
       {/* CTAs */}

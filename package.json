@@ -13,7 +13,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean-dev": "gatsby clean && gatsby develop"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -26,6 +27,7 @@
     "date-fns": "^2.29.3",
     "gatsby": "^5.0.0",
     "gatsby-plugin-image": "^3.3.2",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-sanity-image": "^0.13.4",
     "gatsby-plugin-sharp": "^5.0.0",
