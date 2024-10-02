@@ -41,6 +41,18 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "TACL LYF",
+        short_name: "TACL LYF ",
+        start_url: "/",
+        background_color: "#29A19D",
+        theme_color: "#29A19D",
+        display: "standalone",
+        icon: "src/images/lyf-logo-black.png",
+      },
+    },
   ],
 }
 
