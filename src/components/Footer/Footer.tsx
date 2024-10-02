@@ -73,7 +73,7 @@ export default function Footer() {
               <Facebook style={{ color: "white" }} />
             </Stack>
             {/* Trademark */}
-            <FooterText text="© 2023 TACL-LYF" />
+            <FooterText text="© 2024 TACL-LYF" />
           </Stack>
         </Grid>
         <Grid container xs={12} md={6} columnSpacing={6} rowSpacing={2}>
