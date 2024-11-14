@@ -10,6 +10,8 @@ export const sanityButtonFragment = graphql`
     text
     link
     variant
+    disabled
+    hidden
   }
 `
 
@@ -24,15 +26,19 @@ const SanityButton = React.forwardRef<HTMLButtonElement, SanityButtonProps>(
       console.debug("No content found for the button")
       return <></>
     }
-    const { text, link, variant } = content
+    const { text, link, variant, disabled = false, hidden = false } = content
 
     const sharedProps = {
       href: link || undefined,
       variant: variant,
       ref: ref,
+      disabled: disabled,
       ...rest,
     }
 
+    if (hidden) return <></>
+
+    // Otherwise we'll return an animated button or regular button
     return boopProps ? (
       <AnimatedButton boopProps={boopProps} {...sharedProps}>
         {text}
