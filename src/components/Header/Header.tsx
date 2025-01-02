@@ -50,6 +50,10 @@ const PAGES: Page[] = [
         to: "/camp/faqs",
         text: "FAQs",
       },
+      {
+        to: "/camp/registration-policy",
+        text: "Registration Policy",
+      },
     ],
   },
   {
