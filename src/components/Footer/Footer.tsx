@@ -6,6 +6,7 @@ import Grid from "@mui/material/Unstable_Grid2"
 
 import FooterText from "./FooterText"
 import FooterLink from "./FooterLink"
+import { AnimatedIconButton } from "@components/Button"
 
 const FooterLinks = [
   [
@@ -68,12 +69,38 @@ export default function Footer() {
             </Stack>
             {/* Social Icons */}
             <Stack direction="row" spacing={2}>
-              <LineIcon style={{ color: "white" }} />
-              <Instagram style={{ color: "white" }} />
-              <Facebook style={{ color: "white" }} />
+              <AnimatedIconButton
+                boopProps={{ scale: 1.05 }}
+                href="https://lin.ee/8zWlnfM"
+                sx={{
+                  padding: 0,
+                }}
+              >
+                <LineIcon style={{ color: "white" }} />
+              </AnimatedIconButton>
+
+              <AnimatedIconButton
+                boopProps={{ scale: 1.05 }}
+                href="https://www.instagram.com/tacllyf/"
+                sx={{
+                  padding: 0,
+                }}
+              >
+                <Instagram style={{ color: "white" }} />
+              </AnimatedIconButton>
+
+              <AnimatedIconButton
+                boopProps={{ scale: 1.05 }}
+                href="https://www.facebook.com/tacl.lyf/"
+                sx={{
+                  padding: 0,
+                }}
+              >
+                <Facebook style={{ color: "white" }} />
+              </AnimatedIconButton>
             </Stack>
             {/* Trademark */}
-            <FooterText text="© 2024 TACL-LYF" />
+            <FooterText text="© 2025 TACL-LYF" />
           </Stack>
         </Grid>
         <Grid container xs={12} md={6} columnSpacing={6} rowSpacing={2}>
