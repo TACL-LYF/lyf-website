@@ -75,7 +75,7 @@ export default function ArtContestPage({
 
       {/* Intro Section */}
       <Section maxWidth="lg" backgroundColor="primary.main">
-        <Stack spacing={3}>
+        <Stack spacing={3} alignItems="center">
           <Typography
             variant="h4"
             color="primary.contrastText"
@@ -88,6 +88,16 @@ export default function ArtContestPage({
             color="primary.contrastText"
             content={sanityArtContestPage._rawIntro}
           />
+          <AnimatedButton
+            boopProps={{
+              scale: 1.05,
+            }}
+            href={sanityArtContestPage.submissionFormLink ?? "#"}
+            variant="contained"
+            color="tertiary"
+          >
+            Link to Submission Form
+          </AnimatedButton>
         </Stack>
       </Section>
 
