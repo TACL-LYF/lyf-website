@@ -75,6 +75,10 @@ const PAGES: Page[] = [
         to: "/cookbook",
         text: "Cookbook",
       },
+      {
+        to: "/get-involved/art-contest",
+        text: "Art Contest",
+      },
     ],
   },
 ]
